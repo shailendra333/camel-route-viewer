@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="com.googlecode.camelrouteview"
+            name="Camel">
+      </category>
+      <view
+            category="com.googlecode.camelrouteview"
+            class="com.googlecode.camelrouteviewer.views.RouteView"
+            icon="icons/view.gif"
+            id="com.googlecode.camelrouteviewer.views.RouteView"
+            name="Camel Route">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="com.googlecode.camelrouteviewer.views.RouteView"
+               relationship="stack"
+               relative="org.eclipse.jdt.ui.JavadocView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+
+</plugin>
