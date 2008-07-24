@@ -23,4 +23,4 @@ or:
 Then:
 Open plugin.xml ,in the testing tab,select Lanuch an Eclipse Application。
 
-In the open new Eclipse workspace,you can click the "configure" method in the RouteBuilder subclass,then in the camel route view will display the visual route. 
+In the open new Eclipse workspace,you can click the *configure* method in the RouteBuilder subclass,then in the camel route view will display the visual route. 
