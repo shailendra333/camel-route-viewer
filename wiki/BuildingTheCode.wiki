@@ -17,9 +17,9 @@ An import new features in the 3.4 JDT is "Rich hovers-Follow links in Javadoc ho
 
 Unzip these plugins into Eclipse.
 
-Then*
+*Then*
 
-Checkout the code and import the project.
+Checkout the code and import into the project.
 
 Open plugin.xml ,in the testing tab,select Lanuch an Eclipse Application。
 
