@@ -1,4 +1,5 @@
 package com.googlecode.camelrouteviewer.views;
+
 /**
  * reference:java jdt javadoc view
  */
@@ -12,8 +13,7 @@ import org.eclipse.jdt.core.IJavaElement;
 
 import org.eclipse.jdt.ui.actions.OpenAction;
 
-import org.eclipse.jdt.internal.ui.IJavaHelpContextIds;
-import org.eclipse.jdt.internal.ui.JavaPluginImages;
+import com.googlecode.camelrouteviewer.utils.ImageShop;
 
 class GotoInputAction extends Action {
 
@@ -22,19 +22,19 @@ class GotoInputAction extends Action {
 	public GotoInputAction(RouteView infoView) {
 		Assert.isNotNull(infoView);
 		fInfoView = infoView;
+		setImageDescriptor(ImageShop.getDescriptor("goto_input.gif"));
 
-		JavaPluginImages.setLocalImageDescriptors(this, "goto_input.gif"); //$NON-NLS-1$
-//		setText(RouteViewMessages.GotoInputAction_label);
-//		setToolTipText(RouteViewMessages.GotoInputAction_tooltip);
-//		setDescription(RouteViewMessages.GotoInputAction_description);
+		setText(RouteViewMessages.GotoInputAction_label);
+		setToolTipText(RouteViewMessages.GotoInputAction_tooltip);
+		setDescription(RouteViewMessages.GotoInputAction_description);
 
-		PlatformUI.getWorkbench().getHelpSystem().setHelp(this,
-				IJavaHelpContextIds.OPEN_INPUT_ACTION);
+		// PlatformUI.getWorkbench().getHelpSystem().setHelp(this,
+		// IJavaHelpContextIds.OPEN_INPUT_ACTION);
 	}
 
 	public void run() {
-		// IJavaElement inputElement= fInfoView.getInput();
-		// new OpenAction(fInfoView.getViewSite()).run(new Object[] {
-		// inputElement });
+		IJavaElement inputElement = fInfoView.getInput();
+		new OpenAction(fInfoView.getViewSite())
+				.run(new Object[] { inputElement });
 	}
 }
