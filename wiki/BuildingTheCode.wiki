@@ -8,7 +8,7 @@ An import new features in the 3.4 JDT is "Rich hovers-Follow links in Javadoc ho
 
 = Details =
 
-Required:
+*Required*
 
 You can simple download "Eclipse_IDE_for_Java_EE Developers":http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/R/eclipse-jee-ganymede-win32.zip
 
@@ -20,9 +20,9 @@ or:
 2.Download [http://www.eclipse.org/projects/project_summary.php?projectid=tools.gef GEF] Download [http://www.eclipse.org/gef/zest/ zest].
 
 
-Then:
+*Then*
 Open plugin.xml ,in the testing tab,select Lanuch an Eclipse Application。
 
 In the open new Eclipse workspace,you can click the *configure* method ,then in the camel route view will display the visual route. 
 
-You can use thie Java File for test:[Test.java http://camel-route-viewer.googlecode.com/files/Test.java]
+You can use thie Java File for test:http://camel-route-viewer.googlecode.com/files/Test.java
