@@ -11,9 +11,6 @@ An import new features in the 3.4 JDT is "Rich hovers-Follow links in Javadoc ho
 
 *Required*
 
-You can simple download 
-
-
 1.Download [http://www.eclipse.org/ Eclipse 3.4].I choose "Eclipse_IDE_for_Java_EE Developers":http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/R/eclipse-jee-ganymede-win32.zip".
 
 2.Download Draw2D、GEF、ZEST.There is a "All-In-One SDK (Runtime, Source, Examples)"version:http://www.eclipse.org/downloads/download.php?file=/tools/gef/downloads/drops/3.4.0/R200806091334/GEF-ALL-3.4.0.zip.
