@@ -1,0 +1,18 @@
+
+
+= Introduction =
+Camel Route Viewer Uses Eclipse-3.4(Ganymede).
+A simple reason:
+An import new features in the 3.4 JDT is "Rich hovers-Follow links in Javadoc hover",and Camel Route Viewer ' consults Javadoc-View implement。:)
+
+
+
+= Details =
+
+Required:
+1.Download [Eclipse 3.4 http://www.eclipse.org/].
+2.Download [GEF  http://www.eclipse.org/projects/project_summary.php?projectid=tools.gef]
+Download [zest http://www.eclipse.org/gef/zest/]
+
+
+or You can simple download [Eclipse IDE for Java EE Developers http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/ganymeder]
