@@ -12,6 +12,9 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.internal.ui.javaeditor.JavaEditor;
 import org.eclipse.jdt.internal.ui.util.SelectionUtil;
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.commands.ActionHandler;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -20,6 +23,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IPartListener2;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchPage;
@@ -27,6 +31,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartReference;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.handlers.IHandlerService;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.zest.core.viewers.GraphViewer;
 import org.eclipse.zest.core.widgets.ZestStyles;
@@ -35,6 +40,7 @@ import org.eclipse.zest.layouts.algorithms.HorizontalTreeLayoutAlgorithm;
 
 import com.googlecode.camelrouteviewer.content.RouteContentProvider;
 import com.googlecode.camelrouteviewer.content.RouteLabelProvider;
+import com.googlecode.camelrouteviewer.utils.ImageShop;
 
 /**
  * Reference: <a herf="http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.jdt.ui/ui/org/eclipse/jdt/internal/ui/infoviews/JavadocView.java"
@@ -66,10 +72,9 @@ public class RouteView extends ViewPart implements ISelectionListener {
 	/** The current input. */
 	protected IJavaElement fCurrentViewInput;
 
-	protected RouteSource fCurrentRouteSource;
-
 	/** Counts the number of background computation requests. */
 	private volatile int fComputeCount;
+	private LinkAction fToggleLinkAction;
 
 	private GraphViewer viewer;
 
@@ -117,11 +122,13 @@ public class RouteView extends ViewPart implements ISelectionListener {
 		}
 	};
 
+	private Action fGotoInputAction;
+
 	/**
 	 * Start to listen for selection changes.
 	 */
 	protected void startListeningForSelectionChanges() {
-		getSite().getPage().addPostSelectionListener(this);		
+		getSite().getPage().addPostSelectionListener(this);
 	}
 
 	/**
@@ -157,7 +164,7 @@ public class RouteView extends ViewPart implements ISelectionListener {
 						break;
 				}
 			}
-			
+
 		}
 		IWorkbenchPage[] pages = window.getPages();
 		System.out.println(pages);
@@ -180,6 +187,23 @@ public class RouteView extends ViewPart implements ISelectionListener {
 		viewer.setInput(new Object());
 		getSite().getWorkbenchWindow().getPartService().addPartListener(
 				fPartListener);
+
+		fToggleLinkAction = new LinkAction();
+		fToggleLinkAction
+				.setActionDefinitionId("com.googlecode.camelrouteviewer.views.RouteView.LinkAction");
+		IHandlerService handlerService = (IHandlerService) getSite()
+				.getService(IHandlerService.class);
+		handlerService.activateHandler(
+				"com.googlecode.camelrouteviewer.views.RouteView.LinkAction",
+				new ActionHandler(fToggleLinkAction));
+
+		fGotoInputAction = new GotoInputAction(this);
+		fGotoInputAction.setEnabled(false);
+
+		IActionBars actionBars = getViewSite().getActionBars();
+		IToolBarManager toolBar = actionBars.getToolBarManager();
+		toolBar.add(fToggleLinkAction);
+		toolBar.add(fGotoInputAction);
 
 	}
 
@@ -306,7 +330,6 @@ public class RouteView extends ViewPart implements ISelectionListener {
 							return;
 
 						fCurrentViewInput = je;
-						fCurrentRouteSource = routeSource;
 						doSetInput(routeSource);
 
 						fComputeProgressMonitor = null;
@@ -358,6 +381,7 @@ public class RouteView extends ViewPart implements ISelectionListener {
 	}
 
 	protected void doSetInput(RouteSource input) {
+		fGotoInputAction.setEnabled(true);
 		viewer.setInput(input);
 	}
 
@@ -401,8 +425,8 @@ public class RouteView extends ViewPart implements ISelectionListener {
 	 * 
 	 * @return input the input object or <code>null</code> if not input is set
 	 */
-	protected RouteSource getInput() {
-		return fCurrentRouteSource;
+	protected IJavaElement getInput() {
+		return fCurrentViewInput;
 	}
 
 	public RouteSource computerInput(IJavaElement je) {
@@ -479,6 +503,57 @@ public class RouteView extends ViewPart implements ISelectionListener {
 
 	}
 
+	/**
+	 * Sets whether this info view reacts to selection changes in the workbench.
+	 * 
+	 * @param enabled
+	 *            if true then the input is set on selection changes
+	 */
+	protected void setLinkingEnabled(boolean enabled) {
+		fLinking = enabled;
+
+		if (fLinking && fLastSelection != null) {
+			setInput(fLastSelection);
+		}
+	}
+
+	/**
+	 * Returns whether this info view reacts to selection changes in the
+	 * workbench.
+	 * 
+	 * @return true if linking with selection is enabled
+	 */
+	protected boolean isLinkingEnabled() {
+		return fLinking;
+	}
+
+	/**
+	 * Action to toggle linking with selection.
+	 * 
+	 * @since 3.4
+	 */
+	private class LinkAction extends Action {
+
+		public LinkAction() {
+			super(RouteViewMessages.RouteView_action_toogleLinking_text,
+					SWT.TOGGLE);
+
+			setTitleToolTip(RouteViewMessages.RouteView_action_toggleLinking_toolTipText);
+			LinkAction.this.setImageDescriptor(ImageShop
+					.getDescriptor("synced.gif"));
+			setChecked(isLinkingEnabled());
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see org.eclipse.jface.action.Action#run()
+		 */
+		public void run() {
+			setLinkingEnabled(!isLinkingEnabled());
+		}
+	}
+
 	/*
 	 * @see AbstractInfoView#setForeground(Color)
 	 */
@@ -496,4 +571,10 @@ public class RouteView extends ViewPart implements ISelectionListener {
 	// protected Control getControl() {
 	// return canvas;
 	// }
+	/**
+	 * Returns the input of this view.
+	 * 
+	 * @return input the input object or <code>null</code> if not input is set
+	 */
+
 }
