@@ -198,7 +198,7 @@ public class RouteView extends ViewPart implements ISelectionListener {
 				new ActionHandler(fToggleLinkAction));
 
 		fGotoInputAction = new GotoInputAction(this);
-		fGotoInputAction.setEnabled(false);
+		fGotoInputAction.setEnabled(true);
 
 		IActionBars actionBars = getViewSite().getActionBars();
 		IToolBarManager toolBar = actionBars.getToolBarManager();
