@@ -15,11 +15,13 @@ An important new feature in the 3.4 JDT is "Rich hovers-Follow links in Javadoc 
 
 2.Download Draw2D、GEF、ZEST.There is an "GEF3.4.0 All-In-One SDK (Runtime, Source, Examples)"version:http://www.eclipse.org/downloads/download.php?file=/tools/gef/downloads/drops/3.4.0/R200806091334/GEF-ALL-3.4.0.zip.
 
+3.Get the latest [http://code.google.com/p/camel-route-viewer/source/checkout Source]
+
 Unzip these plugins into Eclipse.
 
 *Then*
 
-Checkout the code and import into the project.
+import into the project.
 
 Open plugin.xml ,in the testing tab,select "Lanuch an Eclipse Application"。
 
