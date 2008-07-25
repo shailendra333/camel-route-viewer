@@ -11,7 +11,7 @@ An important new feature in the 3.4 JDT is "Rich hovers-Follow links in Javadoc 
 
 ==Required==
 
-*Get [http://www.eclipse.org/ Eclipse 3.4].Select one of version as list:
+*Get [http://www.eclipse.org/ Eclipse 3.4].Select one of versions as list:
  #"Eclipse IDE for Java EE Developers":http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/R/eclipse-jee-ganymede-win32.zip". 
  #"Eclipse Classic 3.4  ":http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.4-200806172000/eclipse-SDK-3.4-win32.zip
 
