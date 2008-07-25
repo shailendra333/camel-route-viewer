@@ -3,8 +3,11 @@ package com.googlecode.camelrouteviewer.content;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
+import org.apache.camel.Message;
 import org.apache.camel.builder.DataFormatClause;
+import org.apache.camel.impl.DefaultExchange;
 import org.apache.camel.model.AggregatorType;
 import org.apache.camel.model.ChoiceType;
 import org.apache.camel.model.ConvertBodyType;
@@ -36,6 +39,9 @@ import org.eclipse.ui.views.properties.IPropertySource;
 import com.googlecode.camelrouteviewer.utils.ImageShop;
 
 public class RouteNode implements IAdaptable {
+	
+	// should we generate some dummy messages?
+	protected static final boolean generateDummyResults = true;
 
 	public String tooltop;
 
@@ -248,7 +254,27 @@ public class RouteNode implements IAdaptable {
 		}
 		// TODO should we hack it for now and return a standard set of exchanges so we can build up the UI stuff for now
 		// while we actually wire in the Spring runtime / debugger parts?
-		return new ArrayList<Exchange>();
+		ArrayList<Exchange> answer = new ArrayList<Exchange>();
+		if (processor != null && generateDummyResults) {
+			createDummyMessages(answer);
+		}
+		return answer;
+	}
+
+	protected void createDummyMessages(ArrayList<Exchange> answer) {
+		for (int i = 0; i < 10; i++) {
+			answer.add(createDummyMessage(i));
+		}
+	}
+
+	protected Exchange createDummyMessage(int i) {
+		CamelContext context = null;
+		Exchange answer = new DefaultExchange(context);
+		Message in = answer.getIn();
+		in.setHeader("counter", i);
+		in.setHeader("nodeId", processor.idOrCreate());
+		in.setBody("message " + i + " -> " + processor);
+		return answer;
 	}
 
 }
