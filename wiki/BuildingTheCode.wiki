@@ -26,6 +26,6 @@ or
 
 Open plugin.xml,in the testing tab select "Lanuch an Eclipse Application".
 
-In the runtime workbench,click the *configure* method ,the camel route view will display the visual route. 
+In the runtime workbench,click the *configure()* method ,the camel route view will display the visual route. 
 
 You can use this Java File for test:http://camel-route-viewer.googlecode.com/files/Test.java
