@@ -24,12 +24,15 @@ import org.apache.camel.model.ToType;
 import org.apache.camel.model.TransformType;
 import org.apache.camel.model.WhenType;
 import org.apache.camel.view.NodeData;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.views.properties.IPropertySource;
 
 import com.googlecode.camelrouteviewer.utils.ImageShop;
 
-public class RouteNode {
+public class RouteNode implements IAdaptable {
 
 	public String tooltop;
 
@@ -199,6 +202,14 @@ public class RouteNode {
 
 	public String toString() {
 		return this.label;
+	}
+
+	public Object getAdapter(Class type) {
+		if (type == IPropertySource.class) {
+			return new RouteNodePropertySource(this);
+		}
+		System.out.println("Attempted to convert node: " + this + " to type: " + type);
+		return null;
 	}
 
 }
