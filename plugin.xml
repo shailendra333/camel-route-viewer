@@ -26,5 +26,15 @@
          </view>
       </perspectiveExtension>
    </extension>
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            class="com.googlecode.camelrouteviewer.properties.NodePropertyPage"
+            id="com.googlecode.camelrouteviewer.properties.nodePropertyPage"
+            name="Node Page"
+            nameFilter="*.*"
+            objectClass="com.googlecode.camelrouteviewer.content.RouteNode">
+      </page>
+   </extension>
 
 </plugin>

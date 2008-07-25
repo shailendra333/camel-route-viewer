@@ -205,6 +205,9 @@ public class RouteView extends ViewPart implements ISelectionListener {
 				}
 		}});
 		
+		// lets expose the selection to other viewers
+		getViewSite().setSelectionProvider(viewer);
+		
 		fToggleLinkAction = new LinkAction();
 		fToggleLinkAction
 				.setActionDefinitionId("com.googlecode.camelrouteviewer.views.RouteView.LinkAction");
