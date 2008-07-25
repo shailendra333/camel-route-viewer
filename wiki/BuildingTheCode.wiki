@@ -11,20 +11,21 @@ An important new feature in the 3.4 JDT is "Rich hovers-Follow links in Javadoc 
 
 *Required*
 
-1.Download [http://www.eclipse.org/ Eclipse 3.4].I choose "Eclipse_IDE_for_Java_EE Developers":http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/R/eclipse-jee-ganymede-win32.zip".
+1.Get [http://www.eclipse.org/ Eclipse 3.4].
+ "Eclipse IDE for Java EE Developers":http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/R/eclipse-jee-ganymede-win32.zip".
+or
+"Eclipse Classic 3.4  ":http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.4-200806172000/eclipse-SDK-3.4-win32.zip
 
-2.Download Draw2D、GEF、ZEST.There is an "GEF3.4.0 All-In-One SDK (Runtime, Source, Examples)"version:http://www.eclipse.org/downloads/download.php?file=/tools/gef/downloads/drops/3.4.0/R200806091334/GEF-ALL-3.4.0.zip.
+2.Get Draw2D&GEF&ZEST."GEF3.4.0 All-In-One SDK (Runtime, Source, Examples)"version:http://www.eclipse.org/downloads/download.php?file=/tools/gef/downloads/drops/3.4.0/R200806091334/GEF-ALL-3.4.0.zip.
 
 3.Get the latest [http://code.google.com/p/camel-route-viewer/source/checkout Source]
 
-Unzip these plugins into Eclipse.
+4.JDK1.5
 
-*Then*
+*Run*
 
-import into the project.
+Open plugin.xml,in the testing tab select "Lanuch an Eclipse Application".
 
-Open plugin.xml ,in the testing tab,select "Lanuch an Eclipse Application"。
-
-In the open new Eclipse workspace,you can click the *configure* method ,then in the camel route view will display the visual route. 
+In the runtime workbench,click the *configure* method ,the camel route view will display the visual route. 
 
 You can use this Java File for test:http://camel-route-viewer.googlecode.com/files/Test.java
