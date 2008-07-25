@@ -21,7 +21,7 @@ Unzip these plugins into Eclipse.
 
 Checkout the code and import into the project.
 
-Open plugin.xml ,in the testing tab,select Lanuch an Eclipse Application。
+Open plugin.xml ,in the testing tab,select "Lanuch an Eclipse Application"。
 
 In the open new Eclipse workspace,you can click the *configure* method ,then in the camel route view will display the visual route. 
 
