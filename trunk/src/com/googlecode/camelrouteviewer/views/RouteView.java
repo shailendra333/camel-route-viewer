@@ -17,8 +17,11 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.commands.ActionHandler;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
@@ -40,6 +43,7 @@ import org.eclipse.zest.layouts.algorithms.HorizontalTreeLayoutAlgorithm;
 
 import com.googlecode.camelrouteviewer.content.RouteContentProvider;
 import com.googlecode.camelrouteviewer.content.RouteLabelProvider;
+import com.googlecode.camelrouteviewer.content.RouteNode;
 import com.googlecode.camelrouteviewer.utils.ImageShop;
 
 /**
@@ -187,7 +191,20 @@ public class RouteView extends ViewPart implements ISelectionListener {
 		viewer.setInput(new Object());
 		getSite().getWorkbenchWindow().getPartService().addPartListener(
 				fPartListener);
-
+		
+		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			public void selectionChanged(SelectionChangedEvent event) {
+				ISelection selection = event.getSelection();
+				if (selection instanceof StructuredSelection) {
+					StructuredSelection structuredSelection = (StructuredSelection) selection;
+					Object firstElement = structuredSelection.getFirstElement();
+					if (firstElement instanceof RouteNode) {
+						RouteNode node = (RouteNode) firstElement;
+						System.out.println("Selected node: " + node);
+					}
+				}
+		}});
+		
 		fToggleLinkAction = new LinkAction();
 		fToggleLinkAction
 				.setActionDefinitionId("com.googlecode.camelrouteviewer.views.RouteView.LinkAction");
