@@ -9,7 +9,7 @@ An important new feature in the 3.4 JDT is "Rich hovers-Follow links in Javadoc 
 
 = Details =
 
-*Required*
+==Required==
 
 *Get [http://www.eclipse.org/ Eclipse 3.4].Select one of version as list:
  #"Eclipse IDE for Java EE Developers":http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/R/eclipse-jee-ganymede-win32.zip". 
@@ -21,7 +21,7 @@ An important new feature in the 3.4 JDT is "Rich hovers-Follow links in Javadoc 
 
 *JDK1.5.
 
-*Run*
+==Run==
 
 Open plugin.xml,in the testing tab select "Lanuch an Eclipse Application".
 
