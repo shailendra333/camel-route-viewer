@@ -23,6 +23,7 @@ import org.apache.camel.model.ThrottlerType;
 import org.apache.camel.model.ToType;
 import org.apache.camel.model.TransformType;
 import org.apache.camel.model.WhenType;
+import org.apache.camel.view.NodeData;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 
@@ -40,8 +41,20 @@ public class RouteNode {
 
 	public Image image;
 
-	public RouteNode(Object node) {
+	public String patternDocumentationUrl;
 
+	public String patternName;
+
+	public RouteNode(Object node) {
+        if (node instanceof ProcessorType) {
+        	ProcessorType processor = (ProcessorType) node;
+        	
+        	// lets reuse any metadata we can from the generic code in Camel view 
+        	// such as the URL of the pattern documentation
+        	NodeData data = new NodeData(processor.idOrCreate(), node, "http://activemq.apache.org/camel/images/eip/");
+        	this.patternDocumentationUrl = data.url;
+        	this.patternName = data.nodeType;
+        }
 		if (node instanceof FromType) {
 			FromType fromType = (FromType) node;
 			this.nodeType = RouteNodeType.From;
