@@ -3,6 +3,7 @@ package com.googlecode.camelrouteviewer.content;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.camel.Exchange;
 import org.apache.camel.builder.DataFormatClause;
 import org.apache.camel.model.AggregatorType;
 import org.apache.camel.model.ChoiceType;
@@ -23,6 +24,8 @@ import org.apache.camel.model.ThrottlerType;
 import org.apache.camel.model.ToType;
 import org.apache.camel.model.TransformType;
 import org.apache.camel.model.WhenType;
+import org.apache.camel.processor.interceptor.Debugger;
+import org.apache.camel.spring.Main;
 import org.apache.camel.view.NodeData;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IAdaptable;
@@ -48,9 +51,11 @@ public class RouteNode implements IAdaptable {
 
 	public String patternName;
 
+	public ProcessorType processor;
+
 	public RouteNode(Object node) {
         if (node instanceof ProcessorType) {
-        	ProcessorType processor = (ProcessorType) node;
+        	this.processor = (ProcessorType) node;
         	
         	// lets reuse any metadata we can from the generic code in Camel view 
         	// such as the URL of the pattern documentation
@@ -210,6 +215,40 @@ public class RouteNode implements IAdaptable {
 		}
 		System.out.println("Attempted to convert node: " + this + " to type: " + type);
 		return null;
+	}
+
+	/**
+	 * If debugging is on lets return the current list of messages sent to this
+	 * node
+	 */
+	public Object[] getExchangeArray() {
+		return getExchanges().toArray();
+	}
+
+	/**
+	 * If debugging is on lets return the current list of messages sent to this
+	 * node
+	 * 
+	 * @return
+	 */
+	public List<Exchange> getExchanges() {
+		if (processor != null) {
+			String id = processor.idOrCreate();
+
+			// TODO how do we look up the Main that is currently running?
+			// could we somehow associate it with the route node?
+			Main main = null;
+
+			if (main != null) {
+				Debugger debugger = main.getDebugger();
+				if (debugger != null) {
+					return debugger.getExchanges(id);
+				}
+			}
+		}
+		// TODO should we hack it for now and return a standard set of exchanges so we can build up the UI stuff for now
+		// while we actually wire in the Spring runtime / debugger parts?
+		return new ArrayList<Exchange>();
 	}
 
 }

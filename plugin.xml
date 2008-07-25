@@ -14,6 +14,17 @@
             id="com.googlecode.camelrouteviewer.views.RouteView"
             name="Camel Route">
       </view>
+      <category
+            id="com.googlecode.camelrouteviewer"
+            name="Camel">
+      </category>
+      <view
+            category="com.googlecode.camelrouteviewer"
+            class="com.googlecode.camelrouteviewer.views.messages.MessagesView"
+            icon="icons/sample.gif"
+            id="com.googlecode.camelrouteviewer.views.messages.MessagesView"
+            name="Messages View">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
@@ -23,6 +34,15 @@
                id="com.googlecode.camelrouteviewer.views.RouteView"
                relationship="stack"
                relative="org.eclipse.jdt.ui.JavadocView">
+         </view>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="com.googlecode.camelrouteviewer.views.messages.MessagesView"
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.TaskList">
          </view>
       </perspectiveExtension>
    </extension>
@@ -35,6 +55,12 @@
             nameFilter="*.*"
             objectClass="com.googlecode.camelrouteviewer.content.RouteNode">
       </page>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
    </extension>
 
 </plugin>

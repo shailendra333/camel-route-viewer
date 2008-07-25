@@ -12,6 +12,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.PropertyPage;
 
+/**
+ * TODO this is not actually used yet :)
+ */
 public class NodePropertyPage extends PropertyPage {
 
 	private static final String PATH_TITLE = "Path:";

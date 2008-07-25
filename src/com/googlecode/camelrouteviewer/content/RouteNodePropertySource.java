@@ -12,7 +12,10 @@ public class RouteNodePropertySource implements IPropertySource {
 
 	private IPropertyDescriptor[] propertyDescriptors = {
 			new TextPropertyDescriptor(NAME, "Pattern Name"),
-			new TextPropertyDescriptor(PATTERN_URL, "Pattern Documentation URL"), };
+			
+			// TODO I wonder if we can show this as an actual link?
+			new TextPropertyDescriptor(PATTERN_URL, "Pattern Documentation URL"),
+			};
 
 	private final RouteNode node;
 
