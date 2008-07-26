@@ -4,20 +4,16 @@
    <extension
          point="org.eclipse.ui.views">
       <category
-            id="com.googlecode.camelrouteview"
+            id="com.googlecode.camelrouteviewer"
             name="Camel">
       </category>
       <view
-            category="com.googlecode.camelrouteview"
+            category="com.googlecode.camelrouteviewer"
             class="com.googlecode.camelrouteviewer.views.RouteView"
             icon="icons/view.gif"
             id="com.googlecode.camelrouteviewer.views.RouteView"
             name="Camel Route">
       </view>
-      <category
-            id="com.googlecode.camelrouteviewer"
-            name="Camel">
-      </category>
       <view
             category="com.googlecode.camelrouteviewer"
             class="com.googlecode.camelrouteviewer.views.messages.MessagesView"
