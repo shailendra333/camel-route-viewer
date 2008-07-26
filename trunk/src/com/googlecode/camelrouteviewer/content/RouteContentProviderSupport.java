@@ -7,7 +7,6 @@ import org.apache.camel.model.FromType;
 import org.apache.camel.model.MulticastType;
 import org.apache.camel.model.ProcessorType;
 import org.apache.camel.model.RouteType;
-import org.apache.camel.util.UuidGenerator;
 import org.eclipse.zest.core.viewers.IGraphContentProvider;
 
 /**
@@ -23,9 +22,8 @@ public abstract class RouteContentProviderSupport implements IGraphContentProvid
 	public RouteNode getNodeData(RoutesStore routesTempStore, RouteNode from, ProcessorType processorType) {
 		RouteNode processorNodeData = routesTempStore.getNodeData(processorType);
 	
-		// ^_^ pls let me use camel utils
-		UuidGenerator uuidGenerator = new UuidGenerator("routeview");
-		String connectionString = uuidGenerator.generateSanitizedId();
+		//ensure:connectionString is unique in RoutesStore.
+		String connectionString = from.id+"->"+processorType.idOrCreate();
 		RouteConnection routeConnection = new RouteConnection(from,
 				connectionString, processorNodeData);
 		routesTempStore.getConnections().add(routeConnection);
