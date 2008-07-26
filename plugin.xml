@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
+
    <extension
          point="org.eclipse.ui.views">
       <category
@@ -58,5 +59,46 @@
             file="contexts.xml">
       </contexts>
    </extension>
+   
+   <extension
+       point="org.eclipse.core.runtime.contentTypes">
+       <content-type 
+           id="com.googlecode.camelrouteviewer.contentDescriber.SpringContentDescriber"
+           name="Tests top-level element recognition" 	
+           base-type="org.eclipse.core.runtime.xml"
+           priority="high">
+           <describer class="com.googlecode.camelrouteviewer.contentDescriber.SpringContentDescriber"/>
+        </content-type>
+   </extension>   
+   
+	<extension point="org.eclipse.ui.popupMenus">
+  		<objectContribution
+    		id="com.googlecode.camelrouteviewer.action.SpringVisualizeAction"      
+      		objectClass="org.eclipse.core.resources.IFile" 
+        	nameFilter="*.xml"> 
+           <visibility>
+                   <objectState
+                       name="contentTypeId"
+                       value="com.googlecode.camelrouteviewer.contentDescriber.SpringContentDescriber"/>
+           </visibility>
+  		<action enablesFor="1"  		
+            icon="icons/view.gif"
+                            id="com.googlecode.camelrouteviewer.action.SpringVisualizeAction"
+                            label="Visualize Caml Route">
+                      </action>
+  		</objectContribution>
+	</extension>
+	
+	<!--may be in future: implement an other xml editor class integrate camel visual route.
+	<extension point = "org.eclipse.ui.editors">
+		<editor
+  	  	 id = "com.googlecode.camelrouteviewer.editor.CamelSpringEditor"
+      	   icon="icons/view.gif"
+      	   name="Camel XML Editor"
+	  	   extensions="xml">
+	     <contentTypeBinding contentTypeId="com.googlecode.camelrouteviewer.camelSpringContentType" />   
+		</editor>
+	</extension>
+	-->
 
 </plugin>
