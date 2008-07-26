@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.camel.model.OptionalIdentifiedType;
+
 public class RoutesStore {
 	public List<RouteConnection> connections = new ArrayList<RouteConnection>();
 	private Map<Object, RouteNode> nodeDataMap = new HashMap<Object, RouteNode>();
@@ -22,7 +24,7 @@ public class RoutesStore {
 		return connections.toArray();
 	}
 
-	public RouteNode getNodeData(Object node) {
+	public RouteNode getNodeData(OptionalIdentifiedType node) {
 		Object o = nodeDataMap.get(node);
 		RouteNode nodeData = null;
 		if (o == null) {

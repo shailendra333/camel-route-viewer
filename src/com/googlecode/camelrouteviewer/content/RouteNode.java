@@ -6,7 +6,6 @@ import java.util.List;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
-import org.apache.camel.builder.DataFormatClause;
 import org.apache.camel.impl.DefaultExchange;
 import org.apache.camel.model.AggregatorType;
 import org.apache.camel.model.ChoiceType;
@@ -15,6 +14,7 @@ import org.apache.camel.model.DelayerType;
 import org.apache.camel.model.FilterType;
 import org.apache.camel.model.FromType;
 import org.apache.camel.model.MulticastType;
+import org.apache.camel.model.OptionalIdentifiedType;
 import org.apache.camel.model.OtherwiseType;
 import org.apache.camel.model.ProcessorType;
 import org.apache.camel.model.RecipientListType;
@@ -39,7 +39,9 @@ import org.eclipse.ui.views.properties.IPropertySource;
 import com.googlecode.camelrouteviewer.utils.ImageShop;
 
 public class RouteNode implements IAdaptable {
-	
+
+	public String id;
+
 	// should we generate some dummy messages?
 	protected static final boolean generateDummyResults = true;
 
@@ -59,16 +61,19 @@ public class RouteNode implements IAdaptable {
 
 	public ProcessorType processor;
 
-	public RouteNode(Object node) {
-        if (node instanceof ProcessorType) {
-        	this.processor = (ProcessorType) node;
-        	
-        	// lets reuse any metadata we can from the generic code in Camel view 
-        	// such as the URL of the pattern documentation
-        	NodeData data = new NodeData(processor.idOrCreate(), node, "http://activemq.apache.org/camel/images/eip/");
-        	this.patternDocumentationUrl = data.url;
-        	this.patternName = data.nodeType;
-        }
+	public RouteNode(OptionalIdentifiedType node) {
+		this.id = node.idOrCreate();
+		if (node instanceof ProcessorType) {
+			this.processor = (ProcessorType) node;
+
+			// lets reuse any metadata we can from the generic code in Camel
+			// view
+			// such as the URL of the pattern documentation
+			NodeData data = new NodeData(processor.idOrCreate(), node,
+					"http://activemq.apache.org/camel/images/eip/");
+			this.patternDocumentationUrl = data.url;
+			this.patternName = data.nodeType;
+		}
 		if (node instanceof FromType) {
 			FromType fromType = (FromType) node;
 			this.nodeType = RouteNodeType.From;
@@ -154,13 +159,8 @@ public class RouteNode implements IAdaptable {
 			this.nodeType = RouteNodeType.ConvertBody;
 			this.label = "ConvertBody";
 			image = ImageShop.get("translator.gif");
-		} else if (node instanceof DataFormatClause) {
-			this.nodeType = RouteNodeType.DataFormatClause;
-			DataFormatClause dataFormatClause = (DataFormatClause) node;
-			// dataFormatClause.getOperation().! method not exist:(
-
-			this.label = "dataFormatClause";
-		} else if (node instanceof ProcessorType) {
+		}		
+		else if (node instanceof ProcessorType) {
 			this.nodeType = RouteNodeType.Processor;
 			this.label = "Processor";
 			image = ImageShop.get("processor.gif");
@@ -219,7 +219,8 @@ public class RouteNode implements IAdaptable {
 		if (type == IPropertySource.class) {
 			return new RouteNodePropertySource(this);
 		}
-		System.out.println("Attempted to convert node: " + this + " to type: " + type);
+		System.out.println("Attempted to convert node: " + this + " to type: "
+				+ type);
 		return null;
 	}
 
@@ -252,7 +253,8 @@ public class RouteNode implements IAdaptable {
 				}
 			}
 		}
-		// TODO should we hack it for now and return a standard set of exchanges so we can build up the UI stuff for now
+		// TODO should we hack it for now and return a standard set of exchanges
+		// so we can build up the UI stuff for now
 		// while we actually wire in the Spring runtime / debugger parts?
 		ArrayList<Exchange> answer = new ArrayList<Exchange>();
 		if (processor != null && generateDummyResults) {
