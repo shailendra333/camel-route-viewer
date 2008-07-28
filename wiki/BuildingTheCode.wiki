@@ -5,7 +5,7 @@ Camel Route Viewer Uses Eclipse-3.4(Ganymede).
 A simple reason:
 An important new feature in the 3.4 JDT is "Rich hovers-Follow links in Javadoc hover",and Camel Route Viewer consults Javadoc-View implement。:)
 
-
+http://camel-route-viewer.googlecode.com/files/building_the_code.swf
 
 = Details =
 
