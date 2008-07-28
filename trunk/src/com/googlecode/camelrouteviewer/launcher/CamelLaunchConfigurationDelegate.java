@@ -15,6 +15,8 @@ import org.eclipse.jface.viewers.deferred.SetModel;
 
 /**
  * An initial attempt at a launcher for Camel using the Spring main
+ * 
+ * TODO this does not seem to work yet!
  */
 public class CamelLaunchConfigurationDelegate extends
 		AbstractJavaLaunchConfigurationDelegate implements
