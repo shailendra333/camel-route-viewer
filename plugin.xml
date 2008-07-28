@@ -81,10 +81,12 @@
                        name="contentTypeId"
                        value="com.googlecode.camelrouteviewer.contentDescriber.SpringContentDescriber"/>
            </visibility>
-  		<action enablesFor="1"  		
-            icon="icons/view.gif"
-                            id="com.googlecode.camelrouteviewer.action.SpringVisualizeAction"
-                            label="Visualize Caml Route">
+  		<action
+          class="com.googlecode.camelrouteviewer.action.SpringVisualizeAction"
+          enablesFor="1"
+          icon="icons/view.gif"
+          id="com.googlecode.camelrouteviewer.action.SpringVisualizeAction"
+          label="Visualize Camel Route">
                       </action>
   		</objectContribution>
 	</extension>

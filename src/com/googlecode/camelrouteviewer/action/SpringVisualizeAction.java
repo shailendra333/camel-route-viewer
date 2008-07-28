@@ -38,6 +38,10 @@ public class SpringVisualizeAction implements IObjectActionDelegate {
 		
 		if(element instanceof IFile){
 			IFile file = (IFile)element;
+			String name = file.getName();
+			Object adapter = file.getAdapter(File.class);
+			String path = file.getFullPath().toPortableString();
+			System.out.println(">>>>>>>> name: " + name + " file: " + path + " adapter: " + adapter);
 			InputStream inputStream = null;
 			try {
 				inputStream = file.getContents();
