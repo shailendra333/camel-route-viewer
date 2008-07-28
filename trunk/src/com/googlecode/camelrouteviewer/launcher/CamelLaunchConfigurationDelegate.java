@@ -1,0 +1,52 @@
+package com.googlecode.camelrouteviewer.launcher;
+
+import java.io.File;
+
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.debug.core.ILaunch;
+import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
+import org.eclipse.jdt.launching.AbstractJavaLaunchConfigurationDelegate;
+import org.eclipse.jdt.launching.IVMInstall;
+import org.eclipse.jdt.launching.IVMRunner;
+import org.eclipse.jdt.launching.VMRunnerConfiguration;
+import org.eclipse.jface.viewers.deferred.SetModel;
+
+/**
+ * An initial attempt at a launcher for Camel using the Spring main
+ */
+public class CamelLaunchConfigurationDelegate extends
+		AbstractJavaLaunchConfigurationDelegate implements
+		ILaunchConfigurationDelegate {
+
+	private ILaunchConfiguration currentLaunchConfiguration;
+
+	public void launch(ILaunchConfiguration configuration, String mode,
+			ILaunch launch, IProgressMonitor monitor) throws CoreException {
+
+		IVMInstall vm = verifyVMInstall(configuration);
+		IVMRunner runner = vm.getVMRunner(mode);
+
+		File workingDirectory = getWorkingDirectory(configuration);
+
+		String arguments = getProgramArguments(configuration);
+		String vmargs = getVMArguments(configuration);
+
+		String[] classpath = getClasspath(configuration);
+		VMRunnerConfiguration runConfig = new VMRunnerConfiguration("jre",
+				classpath);
+		runConfig.setProgramArguments(new String[] { "org.apache.camel.spring.Main", arguments });
+		runConfig.setVMArguments(new String[] { vmargs });
+
+		runConfig.setWorkingDirectory(workingDirectory.getAbsolutePath());
+		// Bootpath
+		String[] bootpath = getBootpath(configuration);
+		runConfig.setBootClassPath(bootpath);
+
+		// Launch the configuration
+		this.currentLaunchConfiguration = configuration;
+		runner.run(runConfig, launch, monitor);
+	}
+
+}

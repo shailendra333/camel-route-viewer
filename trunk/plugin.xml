@@ -90,6 +90,38 @@
                       </action>
   		</objectContribution>
 	</extension>
+ <extension
+       point="org.eclipse.debug.core.launchConfigurationTypes">
+    <launchConfigurationType
+    	  category="com.googlecode.camelrouteviewer.launcher.camelTabGroup"
+          delegate="com.googlecode.camelrouteviewer.launcher.CamelLaunchConfigurationDelegate"
+          id="com.googlecode.camelrouteviewer.launchConfigurationType"
+          modes="run"
+          name="Camel Launch">
+    </launchConfigurationType>
+<!--
+
+ <launchConfigurationType
+       category="org.eclipse.jdt.debug.ui.launchConfigurationTabGroup.localJavaApplication"
+       delegate="com.googlecode.camelrouteviewer.launcher.CamelLaunchConfigurationDelegate"
+       id="com.googlecode.camelrouteviewer.launchConfigurationType"
+       modes="run, debug"
+       name="Camel"
+       sourceLocatorId="org.eclipse.jdt.launching.sourceLocator.JavaSourceLookupDirector"
+       sourcePathComputerId="org.eclipse.jdt.launching.sourceLookup.javaSourcePathComputer">
+                </launchConfigurationType>
+-->
+
+            
+ </extension>
+ 
+ <extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+    <launchConfigurationTabGroup
+        type="org.eclipse.jdt.launching.javaApplication"
+        class="com.googlecode.camelrouteviewer.launcher.CamelTabGroup"
+        id="com.googlecode.camelrouteviewer.launcher.camelTabGroup">
+    </launchConfigurationTabGroup>
+</extension>
 	
 	<!--may be in future: implement an other xml editor class integrate camel visual route.
 	<extension point = "org.eclipse.ui.editors">
