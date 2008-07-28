@@ -101,13 +101,17 @@
 	</extension>
  <extension
        point="org.eclipse.debug.core.launchConfigurationTypes">
+    
     <launchConfigurationType
-    	  category="com.googlecode.camelrouteviewer.launcher.camelTabGroup"
-          delegate="com.googlecode.camelrouteviewer.launcher.CamelLaunchConfigurationDelegate"
-          id="com.googlecode.camelrouteviewer.launchConfigurationType"
-          modes="run"
-          name="Camel Launch">
-    </launchConfigurationType>
+			delegate="com.googlecode.camelrouteviewer.launcher.CamelLaunchConfigurationDelegate"
+            delegateDescription="CamelConfigurationType"
+            delegateName="Camel Launch"
+            id="com.googlecode.camelrouteviewer.launchConfigurationType"
+            modes="run,debug"
+            name="Camel Launch">
+      </launchConfigurationType>
+    
+    
 <!--
 
  <launchConfigurationType
@@ -126,12 +130,82 @@
  
  <extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
     <launchConfigurationTabGroup
-        type="org.eclipse.jdt.launching.javaApplication"
+        type="com.googlecode.camelrouteviewer.launchConfigurationType"
         class="com.googlecode.camelrouteviewer.launcher.CamelTabGroup"
         id="com.googlecode.camelrouteviewer.launcher.camelTabGroup">
     </launchConfigurationTabGroup>
 </extension>
 	
+
+	
+	<extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            label="Camel Lancher"
+            icon="icons/view.gif"
+            modes="run,debug"
+            class="com.googlecode.camelrouteviewer.launcher.CamelLaunchShortcut"
+            id="com.googlecode.camelrouteviewer.launcher.type.lanchShortcut">
+	        
+	        <configurationType 
+               id="com.googlecode.camelrouteviewer.launchConfigurationType">
+         	</configurationType>
+            
+			<perspective id="org.eclipse.jdt.ui.JavaPerspective"/>
+			<perspective id="org.eclipse.jdt.ui.JavaHierarchyPerspective"/>
+			<perspective id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/> 
+			<perspective id="org.eclipse.debug.ui.DebugPerspective"/> 
+			<contextualLaunch> 
+				<enablement>
+	                <with variable="selection">
+						<count value="1"/>
+						<iterate>
+							<or>                   
+								<test property="org.eclipse.debug.ui.matchesContentType" value="com.googlecode.camelrouteviewer.contentDescriber.SpringContentDescriber"/>
+							</or>
+						</iterate>
+					</with>
+	            </enablement>
+	         </contextualLaunch>            
+	    </shortcut>
+   </extension>
+	
+	
+	<extension point="org.eclipse.ui.commands"> 
+		<command name="Run Camel Launch" 
+			description="Run Camel Launch" 
+			categoryId="org.eclipse.debug.ui.category.run"
+			id="com.googlecode.camelrouteviewer.launcher.type.lanchShortcut.run">
+		</command>    
+		<keyBinding keySequence="M3+M2+x C"
+			contextId="org.eclipse.ui.globalScope"
+			commandId="com.googlecode.camelrouteviewer.launcher.type.lanchShortcut.run"
+			keyConfigurationId="org.eclipse.ui.defaultAcceleratorConfiguration">  
+		</keyBinding>
+	</extension> 
+	     
+	<extension point="org.eclipse.ui.commands"> 
+		<command name="Debug Camel Launch" 
+			description="Debug Camel Launch" 
+			categoryId="org.eclipse.debug.ui.category.run"
+			id="com.googlecode.camelrouteviewer.launcher.type.lanchShortcut.debug">
+		</command>    
+		<keyBinding keySequence="M3+M2+D C"
+			contextId="org.eclipse.ui.globalScope"
+			commandId="com.googlecode.camelrouteviewer.launcher.type.lanchShortcut.debug"
+			keyConfigurationId="org.eclipse.ui.defaultAcceleratorConfiguration">  
+		</keyBinding>
+	</extension>     
+    
+	<extension
+		point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+		<launchConfigurationTypeImage
+			configTypeID="com.googlecode.camelrouteviewer.launchConfigurationType"
+			icon="icons/view.gif"
+            id="com.googlecode.camelrouteviewer.launcher.type.icon">
+      </launchConfigurationTypeImage>
+   </extension>  
+
 	<!--may be in future: implement an other xml editor class integrate camel visual route.
 	<extension point = "org.eclipse.ui.editors">
 		<editor
@@ -143,5 +217,4 @@
 		</editor>
 	</extension>
 	-->
-
 </plugin>
