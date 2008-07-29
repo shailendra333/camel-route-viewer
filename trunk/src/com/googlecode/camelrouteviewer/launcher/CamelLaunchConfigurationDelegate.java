@@ -1,6 +1,7 @@
 package com.googlecode.camelrouteviewer.launcher;
 
 import java.io.File;
+import java.util.Arrays;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -54,13 +55,16 @@ public class CamelLaunchConfigurationDelegate extends
 
 		File workingDirectory = getWorkingDirectory(configuration);
 
+		String main = getMainTypeName(configuration);
+		if (main == null || main.length() == 0) {
+			main = "org.apache.camel.spring.Main";
+		}
 		String arguments = getProgramArguments(configuration);
 		String vmargs = getVMArguments(configuration);
 
 		String[] classpath = getClasspath(configuration);
-		VMRunnerConfiguration runConfig = new VMRunnerConfiguration("jre",
-				classpath);
-		runConfig.setProgramArguments(new String[] { "org.apache.camel.spring.Main", arguments });
+		VMRunnerConfiguration runConfig = new VMRunnerConfiguration(main, classpath);
+		runConfig.setProgramArguments(new String[] { arguments });
 		runConfig.setVMArguments(new String[] { "-Dcom.sun.management.jmxremote", "-Dorg.apache.camel.jmx.usePlatformMBeanServer=true", vmargs });
 
 		// TODO we need to set the project to be the currently active project to see the classpath
@@ -71,10 +75,15 @@ public class CamelLaunchConfigurationDelegate extends
 		}
 		// Bootpath
 		String[] bootpath = getBootpath(configuration);
-		runConfig.setBootClassPath(bootpath);
-
+		if (bootpath != null) {
+			runConfig.setBootClassPath(bootpath);
+		}
+		
 		// Launch the configuration
 		this.currentLaunchConfiguration = configuration;
+		
+		System.out.println("About to run main: " + runConfig.getClassToLaunch() + " with args: " + Arrays.asList(runConfig.getProgramArguments()));
+		System.out.println("Classpath: " + Arrays.asList(runConfig.getClassPath()));
 		runner.run(runConfig, launch, monitor);
 	}
 

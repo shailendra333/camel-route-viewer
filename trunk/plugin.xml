@@ -110,7 +110,7 @@
             delegateName="Camel Launch"
             id="com.googlecode.camelrouteviewer.launchConfigurationType"
             modes="run,debug"
-            name="Camel Launch">
+            name="Apache Camel">
       </launchConfigurationType>
     
     
@@ -143,7 +143,7 @@
 	<extension
          point="org.eclipse.debug.ui.launchShortcuts">
       <shortcut
-            label="Run Camel"
+            label="Ride the Camel"
             icon="icons/view.gif"
             modes="run,debug"
             class="com.googlecode.camelrouteviewer.launcher.CamelLaunchShortcut"
