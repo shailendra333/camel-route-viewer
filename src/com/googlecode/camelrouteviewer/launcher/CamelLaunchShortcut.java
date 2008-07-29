@@ -105,6 +105,7 @@ public class CamelLaunchShortcut implements ILaunchShortcut, IJavaLaunchConfigur
 
 			System.out.println("About to run Camel main with arguments: " + arguments);
 
+			String runMode = ILaunchManager.DEBUG_MODE;
 
 			IJavaProject myJavaProject = toJavaProject(project);
 			if (myJavaProject != null) {
@@ -112,7 +113,7 @@ public class CamelLaunchShortcut implements ILaunchShortcut, IJavaLaunchConfigur
 				if (vmInstall == null)
 					vmInstall = JavaRuntime.getDefaultVMInstall();
 				if (vmInstall != null) {
-					IVMRunner vmRunner = vmInstall.getVMRunner(ILaunchManager.RUN_MODE);
+					IVMRunner vmRunner = vmInstall.getVMRunner(runMode); // use Debug so we can communicate!
 					if (vmRunner != null) {
 						String[] classPath = null;
 						try {
@@ -138,7 +139,7 @@ public class CamelLaunchShortcut implements ILaunchShortcut, IJavaLaunchConfigur
 							
 							ILaunchConfiguration configuration = workingCopy.doSave();
 
-							DebugUITools.launch(configuration, ILaunchManager.RUN_MODE);
+							DebugUITools.launch(configuration, runMode);
 
 						} else {
 							System.out.println("No classpath for project: " + myJavaProject);
