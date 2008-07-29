@@ -1,7 +1,10 @@
 package com.googlecode.camelrouteviewer.launcher;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.StringTokenizer;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -66,14 +69,18 @@ public class CamelLaunchConfigurationDelegate extends
 		VMRunnerConfiguration runConfig = new VMRunnerConfiguration(main, classpath);
 
 		// TODO we need to deal properly with arguments and vmargs containing a list of arguments
-		if (arguments != null && arguments.length() > 0) {
-			runConfig.setProgramArguments(new String[] { arguments });
+		List<String> argList = new ArrayList<String>();
+		addCommandLineArgs(argList, arguments);
+		if (!argList.isEmpty()) {
+			runConfig.setProgramArguments(toStringArray(argList));
 		}
-		if (vmargs != null && vmargs.length() > 0) {
-			runConfig.setVMArguments(new String[] { "-Dcom.sun.management.jmxremote", "-Dorg.apache.camel.jmx.usePlatformMBeanServer=true", vmargs });
-		}
-		else {
-			runConfig.setVMArguments(new String[] { "-Dcom.sun.management.jmxremote", "-Dorg.apache.camel.jmx.usePlatformMBeanServer=true" });
+		
+		List<String> vmArgList = new ArrayList<String>();
+		vmArgList.add("-Dcom.sun.management.jmxremote");
+		vmArgList.add("-Dorg.apache.camel.jmx.usePlatformMBeanServer=true");
+		addCommandLineArgs(vmArgList, vmargs);
+		if (!vmArgList.isEmpty()) {
+			runConfig.setVMArguments(toStringArray(vmArgList));
 		}
 		
 		// TODO we need to set the project to be the currently active project to see the classpath
@@ -91,10 +98,28 @@ public class CamelLaunchConfigurationDelegate extends
 		// Launch the configuration
 		this.currentLaunchConfiguration = configuration;
 		
-		System.out.println("About to run main: " + runConfig.getClassToLaunch() + " with args: " + Arrays.asList(runConfig.getProgramArguments()));
+		System.out.println("About to run main: " + runConfig.getClassToLaunch() );
+		System.out.println("args: " + Arrays.asList(runConfig.getProgramArguments()));
 		System.out.println("VM args: " + Arrays.asList(runConfig.getVMArguments()));
 		System.out.println("Classpath: " + Arrays.asList(runConfig.getClassPath()));
 		runner.run(runConfig, launch, monitor);
+	}
+
+
+	protected String[] toStringArray(List<String> list) {
+		String[] answer = new String[list.size()];
+		list.toArray(answer);
+		return answer;
+	}
+
+
+	private void addCommandLineArgs(List<String> argList, String arguments) {
+		if (arguments != null && arguments.length() > 0) {
+			StringTokenizer iter = new StringTokenizer(arguments);
+			while (iter.hasMoreTokens()) {
+				argList.add(iter.nextToken());
+			}
+		}
 	}
 
 }
