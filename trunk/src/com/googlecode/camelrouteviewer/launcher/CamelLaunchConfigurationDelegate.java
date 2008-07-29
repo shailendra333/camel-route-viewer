@@ -64,6 +64,8 @@ public class CamelLaunchConfigurationDelegate extends
 
 		String[] classpath = getClasspath(configuration);
 		VMRunnerConfiguration runConfig = new VMRunnerConfiguration(main, classpath);
+
+		// TODO we need to deal properly with arguments and vmargs containing a list of arguments
 		if (arguments != null && arguments.length() > 0) {
 			runConfig.setProgramArguments(new String[] { arguments });
 		}
