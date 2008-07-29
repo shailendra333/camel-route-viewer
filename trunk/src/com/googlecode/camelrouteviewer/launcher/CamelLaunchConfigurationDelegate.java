@@ -8,9 +8,23 @@ import java.util.StringTokenizer;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.debug.core.DebugEvent;
+import org.eclipse.debug.core.DebugException;
+import org.eclipse.debug.core.DebugPlugin;
+import org.eclipse.debug.core.IDebugEventFilter;
+import org.eclipse.debug.core.IExpressionListener;
+import org.eclipse.debug.core.IExpressionManager;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.debug.core.model.IDebugElement;
+import org.eclipse.debug.core.model.IDebugTarget;
+import org.eclipse.debug.core.model.IExpression;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
+import org.eclipse.debug.core.model.IStackFrame;
+import org.eclipse.debug.core.model.IThread;
+import org.eclipse.debug.core.model.IValue;
+import org.eclipse.debug.core.model.IVariable;
+import org.eclipse.debug.core.model.IWatchExpression;
 import org.eclipse.jdt.launching.AbstractJavaLaunchConfigurationDelegate;
 import org.eclipse.jdt.launching.IVMInstall;
 import org.eclipse.jdt.launching.IVMRunner;
@@ -31,28 +45,6 @@ public class CamelLaunchConfigurationDelegate extends
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 
-//		hi~~james.strachan:I just to try these codes ~~~,you can restore your code any time~~~:)
-/*		System.out.println(configuration);
-		System.out
-				.println("You selected Camel launchconfiguration type to run");
-
-		Process process;
-
-		try {
-			process = Runtime.getRuntime().exec("ipconfig");
-
-			RuntimeProcess runtimeProcess = new RuntimeProcess(launch, process,
-					"Camel Process", null);
-
-			launch.addProcess(runtimeProcess);
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-
-		}
-*/		
-		
 		IVMInstall vm = verifyVMInstall(configuration);
 		IVMRunner runner = vm.getVMRunner(mode);
 
@@ -104,9 +96,65 @@ public class CamelLaunchConfigurationDelegate extends
 		System.out.println("args: " + Arrays.asList(runConfig.getProgramArguments()));
 		System.out.println("VM args: " + Arrays.asList(runConfig.getVMArguments()));
 		System.out.println("Classpath: " + Arrays.asList(runConfig.getClassPath()));
+
 		runner.run(runConfig, launch, monitor);
+		IDebugTarget debugTarget = launch.getDebugTarget();
+		System.out.println(">>>> Debug Target: " + debugTarget);
+		if (debugTarget != null) {
+		}
+		
+		// TODO an attempt to evaluate expressions...
+		DebugPlugin debugPlugin = DebugPlugin.getDefault();
+		debugPlugin.addDebugEventFilter(new IDebugEventFilter() {
+
+			public DebugEvent[] filterDebugEvents(DebugEvent[] events) {
+				for (DebugEvent event : events) {
+					System.out.println(">>>> debug event: " + event);
+					Object source = event.getSource();
+					if (source instanceof IThread) {
+						IThread thread = (IThread) source;
+						displayStackFrames(thread);
+					}
+				}
+				return events;
+			}
+		});
+		try {
+			IExpressionManager expressionManager = debugPlugin.getExpressionManager();
+			//String expressionText = "org.apache.camel.spring.Main.getInstance()";
+			String expressionText = "new org.apache.camel.impl.DefaultCamelContext()";
+			IWatchExpression expression = expressionManager.newWatchExpression(expressionText);
+			expression.setEnabled(true);
+//			IDebugElement expressionContext = null;
+//			expression.setExpressionContext(expressionContext );
+			expressionManager.addExpression(expression);
+			expression.evaluate();
+			System.out.println("Attempted to evaluate expression: " + expression);
+			System.out.println("Value: " + expression.getValue());
+			System.out.println("Value: " + Arrays.asList(expression.getErrorMessages()));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Caught: " + e);
+			e.printStackTrace();
+		}
 	}
 
+	protected void displayStackFrames(IThread thread) {
+		try {
+			IStackFrame[] stackFrames = thread.getStackFrames();
+			for (IStackFrame stackFrame : stackFrames) {
+				System.out.println("Stack frame: " + stackFrame);
+				IVariable[] variables = stackFrame.getVariables();
+				for (IVariable variable : variables) {
+					System.out.println("Variable: " + variable.getName() + " value: " + variable.getValue());
+				}
+			}
+		} catch (DebugException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Caught: " + e);
+			e.printStackTrace();
+		}
+	}
 
 	protected String[] toStringArray(List<String> list) {
 		String[] answer = new String[list.size()];
