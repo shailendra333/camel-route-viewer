@@ -179,7 +179,7 @@
 			categoryId="org.eclipse.debug.ui.category.run"
 			id="com.googlecode.camelrouteviewer.launcher.type.lanchShortcut.run">
 		</command>    
-		<keyBinding keySequence="M3+M2+x C"
+		<keyBinding keySequence="M3+M2+X C"
 			contextId="org.eclipse.ui.globalScope"
 			commandId="com.googlecode.camelrouteviewer.launcher.type.lanchShortcut.run"
 			keyConfigurationId="org.eclipse.ui.defaultAcceleratorConfiguration">  
