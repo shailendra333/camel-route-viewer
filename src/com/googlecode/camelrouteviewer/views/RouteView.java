@@ -44,7 +44,7 @@ import org.eclipse.zest.core.widgets.ZestStyles;
 import org.eclipse.zest.layouts.LayoutStyles;
 import org.eclipse.zest.layouts.algorithms.HorizontalTreeLayoutAlgorithm;
 
-import com.googlecode.camelrouteviewer.content.LaunchRouteContentProvider;
+import com.googlecode.camelrouteviewer.content.RouteContentProvider;
 import com.googlecode.camelrouteviewer.content.RouteLabelProvider;
 import com.googlecode.camelrouteviewer.content.RouteNode;
 import com.googlecode.camelrouteviewer.utils.ImageShop;
@@ -183,7 +183,7 @@ public class RouteView extends ViewPart implements ISelectionListener {
 
 		viewer = new GraphViewer(parent, SWT.NONE);
 		
-		viewer.setContentProvider(new LaunchRouteContentProvider());
+		viewer.setContentProvider(new RouteContentProvider());
 		viewer.setLabelProvider(new RouteLabelProvider());
 
 		viewer.setConnectionStyle(ZestStyles.CONNECTIONS_DIRECTED);
