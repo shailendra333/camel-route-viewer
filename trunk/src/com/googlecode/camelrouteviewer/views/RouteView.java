@@ -1,6 +1,9 @@
 package com.googlecode.camelrouteviewer.views;
 
+import java.util.List;
+
 import org.apache.camel.management.JmxSystemPropertyKeys;
+import org.apache.camel.model.RouteType;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -41,7 +44,7 @@ import org.eclipse.zest.core.widgets.ZestStyles;
 import org.eclipse.zest.layouts.LayoutStyles;
 import org.eclipse.zest.layouts.algorithms.HorizontalTreeLayoutAlgorithm;
 
-import com.googlecode.camelrouteviewer.content.RouteContentProvider;
+import com.googlecode.camelrouteviewer.content.LaunchRouteContentProvider;
 import com.googlecode.camelrouteviewer.content.RouteLabelProvider;
 import com.googlecode.camelrouteviewer.content.RouteNode;
 import com.googlecode.camelrouteviewer.utils.ImageShop;
@@ -51,6 +54,8 @@ import com.googlecode.camelrouteviewer.utils.ImageShop;
  * >Eclipse JDT Javadoc view</a>
  */
 public class RouteView extends ViewPart implements ISelectionListener {
+
+	public static final String VIEW_ID = "com.googlecode.camelrouteviewer.views.RouteView";
 
 	/**
 	 * Progress monitor used to cancel pending computations.
@@ -82,11 +87,7 @@ public class RouteView extends ViewPart implements ISelectionListener {
 
 	private GraphViewer viewer;
 
-	/**
-	 * The constructor.
-	 */
-	public RouteView() {
-	}
+	private Action fGotoInputAction;
 
 	private IPartListener2 fPartListener = new IPartListener2() {
 		public void partVisible(IWorkbenchPartReference ref) {
@@ -126,7 +127,8 @@ public class RouteView extends ViewPart implements ISelectionListener {
 		}
 	};
 
-	private Action fGotoInputAction;
+	public RouteView() {
+	}
 
 	/**
 	 * Start to listen for selection changes.
@@ -180,7 +182,8 @@ public class RouteView extends ViewPart implements ISelectionListener {
 		// parent.setForeground(new Color(display,r1));
 
 		viewer = new GraphViewer(parent, SWT.NONE);
-		viewer.setContentProvider(new RouteContentProvider());
+		
+		viewer.setContentProvider(new LaunchRouteContentProvider());
 		viewer.setLabelProvider(new RouteLabelProvider());
 
 		viewer.setConnectionStyle(ZestStyles.CONNECTIONS_DIRECTED);
@@ -271,6 +274,10 @@ public class RouteView extends ViewPart implements ISelectionListener {
 	 */
 	public final void setInput(final IJavaElement element) {
 		computeAndDoSetInput(null, element);
+	}
+	
+	public void setRouteDefinitions(List<RouteType> routes) {
+		viewer.setInput(routes);
 	}
 
 	/**
@@ -403,6 +410,7 @@ public class RouteView extends ViewPart implements ISelectionListener {
 	protected void doSetInput(RouteSource input) {
 		fGotoInputAction.setEnabled(true);
 		viewer.setInput(input);
+		//viewer.refresh();
 	}
 
 	/**

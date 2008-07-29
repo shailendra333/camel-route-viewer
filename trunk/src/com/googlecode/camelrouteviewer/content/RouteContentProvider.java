@@ -24,7 +24,6 @@ public class RouteContentProvider extends RouteContentProviderSupport {
 	private Interpreter interpreter;
 
 	public RouteContentProvider() {
-		routesTempStore = new RoutesStore();
 		context = new DefaultCamelContext();
 
 		interpreter = new Interpreter();

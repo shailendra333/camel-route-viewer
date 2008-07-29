@@ -25,14 +25,15 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
 public class LaunchCamelAction implements IObjectActionDelegate, IJavaLaunchConfigurationConstants{
-	protected static final String LAUNCHER_NAME = "Start Camel";
+	protected static final String LAUNCHER_NAME = "Start Local Camel";
+	protected static final String ID_LOCAL_CAMEL = LaunchCamelAction.class.getName();
 
 	public void run(IAction action) {
 		try {
 			ILaunchManager manager = DebugPlugin.getDefault()
 					.getLaunchManager();
 			ILaunchConfigurationType type = manager
-					.getLaunchConfigurationType(ID_JAVA_APPLICATION);
+					.getLaunchConfigurationType(ID_LOCAL_CAMEL);
 			ILaunchConfiguration[] configurations = manager
 					.getLaunchConfigurations(type);
 			for (int i = 0; i < configurations.length; i++) {
