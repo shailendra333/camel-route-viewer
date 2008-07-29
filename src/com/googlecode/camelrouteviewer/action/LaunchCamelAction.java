@@ -24,18 +24,27 @@ import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
+import com.googlecode.camelrouteviewer.launcher.CamelLaunchConfigurationDelegate;
+
 public class LaunchCamelAction implements IObjectActionDelegate, IJavaLaunchConfigurationConstants{
 	protected static final String LAUNCHER_NAME = "Start Local Camel";
 	protected static final String ID_LOCAL_CAMEL = LaunchCamelAction.class.getName();
 
 	public void run(IAction action) {
 		try {
-			ILaunchManager manager = DebugPlugin.getDefault()
-					.getLaunchManager();
-			ILaunchConfigurationType type = manager
-					.getLaunchConfigurationType(ID_LOCAL_CAMEL);
-			ILaunchConfiguration[] configurations = manager
-					.getLaunchConfigurations(type);
+			ILaunchManager manager = DebugPlugin.getDefault().getLaunchManager();
+			String configTypeId = CamelLaunchConfigurationDelegate.LAUNCH_CONFIG_TYPE_ID;
+			ILaunchConfigurationType type = manager.getLaunchConfigurationType(configTypeId);
+			if (type == null) {
+				System.out.println("No launch configuration type for ID: " + configTypeId);
+				throw new NullPointerException("No launch configuration type for ID: " + configTypeId);
+			}
+
+			ILaunchConfigurationWorkingCopy workingCopy = type.newInstance(null, "Run Camel");
+
+
+			// Delete old configurations...
+			ILaunchConfiguration[] configurations = manager.getLaunchConfigurations(type);
 			for (int i = 0; i < configurations.length; i++) {
 				ILaunchConfiguration configuration = configurations[i];
 				if (configuration.getName().equals(LAUNCHER_NAME)) {
@@ -43,7 +52,6 @@ public class LaunchCamelAction implements IObjectActionDelegate, IJavaLaunchConf
 					break;
 				}
 			}
-			ILaunchConfigurationWorkingCopy workingCopy = type.newInstance(null, LAUNCHER_NAME);
 
 			// specify main type and program arguments
 			workingCopy.setAttribute(ATTR_MAIN_TYPE_NAME, "org.apache.camel.spring.Main");

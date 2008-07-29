@@ -1,3 +1,0 @@
-These extensions don't currently work. 
-
-I can't figure out how to get the camel launch delegate to actually work :)
