@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://camel-route-viewer.googlecode.com/svn/updates/">
+      http://camel-route-viewer.googlecode.com/svn/updates/
+   </description>
+   <feature url="features/com.googlecode.camelrouteviewer.feature_0.1.0.jar" id="com.googlecode.camelrouteviewer.feature" version="0.1">
+      <category name="CamelRouteViewer"/>
+   </feature>
+   <category-def name="CamelRouteViewer" label="CamelRouteViewer"/>
+</site>
