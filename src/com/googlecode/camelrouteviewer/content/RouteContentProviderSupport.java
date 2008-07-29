@@ -14,7 +14,8 @@ import org.eclipse.zest.core.viewers.IGraphContentProvider;
  */
 public abstract class RouteContentProviderSupport implements IGraphContentProvider {
 
-	protected RoutesStore routesTempStore;
+	protected RoutesStore routesTempStore = new RoutesStore();
+;
 
 	public RouteContentProviderSupport() {
 	}
@@ -84,6 +85,10 @@ public abstract class RouteContentProviderSupport implements IGraphContentProvid
 			}
 	
 		}
+	}
+
+	public void clear() {
+		routesTempStore.clear();
 	}
 
 }

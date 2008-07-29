@@ -82,7 +82,7 @@
                        value="com.googlecode.camelrouteviewer.contentDescriber.SpringContentDescriber"/>
            </visibility>
   		<action
-          class="com.googlecode.camelrouteviewer.action.LaunchCamelAction"
+          class="com.googlecode.camelrouteviewer.action.LocalLaunchCamelAction"
           enablesFor="1"
           icon="icons/view.gif"
           id="com.googlecode.camelrouteviewer.action.LaunchCamelAction"
@@ -217,4 +217,5 @@
 		</editor>
 	</extension>
 	-->
+
 </plugin>
