@@ -64,9 +64,16 @@ public class CamelLaunchConfigurationDelegate extends
 
 		String[] classpath = getClasspath(configuration);
 		VMRunnerConfiguration runConfig = new VMRunnerConfiguration(main, classpath);
-		runConfig.setProgramArguments(new String[] { arguments });
-		runConfig.setVMArguments(new String[] { "-Dcom.sun.management.jmxremote", "-Dorg.apache.camel.jmx.usePlatformMBeanServer=true", vmargs });
-
+		if (arguments != null && arguments.length() > 0) {
+			runConfig.setProgramArguments(new String[] { arguments });
+		}
+		if (vmargs != null && vmargs.length() > 0) {
+			runConfig.setVMArguments(new String[] { "-Dcom.sun.management.jmxremote", "-Dorg.apache.camel.jmx.usePlatformMBeanServer=true", vmargs });
+		}
+		else {
+			runConfig.setVMArguments(new String[] { "-Dcom.sun.management.jmxremote", "-Dorg.apache.camel.jmx.usePlatformMBeanServer=true" });
+		}
+		
 		// TODO we need to set the project to be the currently active project to see the classpath
 		// of local stuff
 		
@@ -83,6 +90,7 @@ public class CamelLaunchConfigurationDelegate extends
 		this.currentLaunchConfiguration = configuration;
 		
 		System.out.println("About to run main: " + runConfig.getClassToLaunch() + " with args: " + Arrays.asList(runConfig.getProgramArguments()));
+		System.out.println("VM args: " + Arrays.asList(runConfig.getVMArguments()));
 		System.out.println("Classpath: " + Arrays.asList(runConfig.getClassPath()));
 		runner.run(runConfig, launch, monitor);
 	}
