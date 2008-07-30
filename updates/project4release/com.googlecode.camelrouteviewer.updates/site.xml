@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.googlecode.camelrouteviewer.feature_1.0.1.jar" id="com.googlecode.camelrouteviewer.feature" version="1.0.1">
+      <category name="Camel"/>
+   </feature>
+   <category-def name="Camel" label="Camel"/>
+</site>
