@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description url="http://camel-route-viewer.googlecode.com/svn/updates/">
-      http://camel-route-viewer.googlecode.com/svn/updates/
-   </description>
-   <feature url="features/com.googlecode.camelrouteviewer.feature_0.1.0.jar" id="com.googlecode.camelrouteviewer.feature" version="0.1">
-      <category name="CamelRouteViewer"/>
+   <feature url="features/com.googlecode.camelrouteviewer.feature_1.0.0.jar" id="com.googlecode.camelrouteviewer.feature" version="1.0.0">
+      <category name="Camel"/>
    </feature>
-   <category-def name="CamelRouteViewer" label="CamelRouteViewer"/>
+   <category-def name="Camel" label="Camel"/>
 </site>

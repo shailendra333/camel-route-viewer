@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?metadataRepository class='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'?>
-<repository name='file:/C:/Users/admin/workspace/CamelRouteViewer/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
+<repository name='file:/C:/Documents and Settings/zhang_lguo/workspace/com.googlecode.camelrouteviewer.updates/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1217343037609'/>
+    <property name='p2.timestamp' value='1217403136359'/>
   </properties>
   <references size='2'>
-    <repository url='http://camel-route-viewer.googlecode.com/svn/updates/' type='1' options='0'/>
     <repository url='http://camel-route-viewer.googlecode.com/svn/updates/' type='0' options='0'/>
+    <repository url='http://camel-route-viewer.googlecode.com/svn/updates/' type='1' options='0'/>
   </references>
   <units size='8'>
     <unit id='config.a.jre' version='1.6.0' singleton='false'>
@@ -31,42 +31,6 @@
           </instruction>
         </instructions>
       </touchpointData>
-    </unit>
-    <unit id='com.googlecode.camelrouteviewer.feature.feature.jar' version='0.1.0'>
-      <update id='com.googlecode.camelrouteviewer.feature.feature.jar' range='[0.0.0,0.1.0)' severity='0'/>
-      <properties size='4'>
-        <property name='org.eclipse.equinox.p2.name' value='Camel Route Viewer'/>
-        <property name='org.eclipse.equinox.p2.description' value='Camel Route Viewer'/>
-        <property name='org.eclipse.equinox.p2.description.url' value='http://code.google.com/p/camel-route-viewer/'/>
-        <property name='org.eclipse.equinox.p2.provider' value='http://code.google.com/p/camel-route-viewer/'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.googlecode.camelrouteviewer.feature.feature.jar' version='0.1.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-        <provided namespace='org.eclipse.update.feature' name='com.googlecode.camelrouteviewer.feature' version='0.1.0'/>
-      </provides>
-      <filter>
-        (org.eclipse.update.install.features=true)
-      </filter>
-      <artifacts size='1'>
-        <artifact classifier='org.eclipse.update.feature' id='com.googlecode.camelrouteviewer.feature' version='0.1.0'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-      <licenses size='1'>
-        <license url='http://www.apache.org/licenses/LICENSE-2.0'>
-          http://www.apache.org/licenses/LICENSE-2.0
-        </license>
-      </licenses>
-      <copyright url='http://www.example.com/copyright'>
-        (c) 2008 Camel Rider
-      </copyright>
     </unit>
     <unit id='com.googlecode.camelrouteviewer' version='0.1.0'>
       <update id='com.googlecode.camelrouteviewer' range='[0.0.0,0.1.0)' severity='0'/>
@@ -103,7 +67,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.zest.core;bundle-version=&quot;1.0.0&quot;,org.eclipse.zest.layouts;bundle-version=&quot;1.0.0&quot;,org.eclipse.jdt.ui;bundle-version=&quot;3.4.0&quot;,org.eclipse.jdt.core;bundle-version=&quot;3.4.0&quot;,org.eclipse.core.resources;bundle-version=&quot;3.4.0&quot;,org.eclipse.jface.text;bundle-version=&quot;3.4.0&quot;,org.eclipse.ui.editors;bundle-version=&quot;3.4.0&quot;,org.eclipse.core.expressions;bundle-version=&quot;3.4.0&quot;,org.eclipse.ui.views.properties.tabbed,org.eclipse.debug.core,org.eclipse.jdt.launching;bundle-version=&quot;3.4.0&quot;,org.eclipse.jdt.debug.ui;bundle-version=&quot;3.3.0&quot;&#xA;Bundle-Activator: com.googlecode.camelrouteviewer.Activator&#xA;Bundle-Name: Camel Route Viewer Plug-in&#xA;Bundle-Version: 0.1&#xA;Bundle-Vendor: http://code.google.com/p/camel-route-viewer/&#xA;Bundle-SymbolicName: com.googlecode.camelrouteviewer;singleton:=true&#xA;Import-Package: org.eclipse.debug.ui&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .,lib/activation-1.1.jar,lib/bsh-2.0b4.jar,lib/camel-core-1.4.0.jar,lib/camel-spring-1.4.0.jar,lib/commons-logging-1.1.1.jar,lib/jaxb-api-2.1.jar,lib/jaxb-impl-2.1.3.jar,lib/spring-aop-2.5.5.jar,lib/spring-beans-2.5.5.jar,lib/spring-context-2.5.5.jar,lib/spring-core-2.5.5.jar,lib/spring-web-2.5.5.jar,lib/stax-api-1.0-2.jar
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.zest.core;bundle-version=&quot;1.0.0&quot;,org.eclipse.zest.layouts;bundle-version=&quot;1.0.0&quot;,org.eclipse.jdt.ui;bundle-version=&quot;3.4.0&quot;,org.eclipse.jdt.core;bundle-version=&quot;3.4.0&quot;,org.eclipse.core.resources;bundle-version=&quot;3.4.0&quot;,org.eclipse.jface.text;bundle-version=&quot;3.4.0&quot;,org.eclipse.ui.editors;bundle-version=&quot;3.4.0&quot;,org.eclipse.core.expressions;bundle-version=&quot;3.4.0&quot;,org.eclipse.ui.views.properties.tabbed,org.eclipse.debug.core,org.eclipse.jdt.launching;bundle-version=&quot;3.4.0&quot;,org.eclipse.jdt.debug.ui;bundle-version=&quot;3.3.0&quot;&#xA;Bundle-Activator: com.googlecode.camelrouteviewer.Activator&#xA;Bundle-Name: Camel Route Viewer Plug-in&#xA;Bundle-Version: 0.1&#xA;Bundle-Vendor: http://code.google.com/p/camel-route-viewer/&#xA;Bundle-SymbolicName: com.googlecode.camelrouteviewer;singleton:=true&#xA;Import-Package: org.eclipse.debug.ui&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .,lib/activation-1.1.jar,lib/bsh-2.0b4.jar,lib/camel-core-1.4.0.jar,lib/camel-spring-1.4.0.jar,lib/commons-logging-1.1.1.jar,lib/jaxb-api-2.1.jar,lib/jaxb-impl-2.1.3.jar,lib/spring-aop-2.5.5.jar,lib/spring-beans-2.5.5.jar,lib/spring-context-2.5.5.jar,lib/spring-core-2.5.5.jar,lib/spring-web-2.5.5.jar,lib/stax-api-1.0-2.jar&#xA;
           </instruction>
         </instructions>
       </touchpointData>
@@ -140,6 +104,87 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='com.googlecode.camelrouteviewer.feature.feature.group' version='1.0.0' singleton='false'>
+      <update id='com.googlecode.camelrouteviewer.feature.feature.group' range='[0.0.0,1.0.0)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='Camel Route Viewer '/>
+        <property name='org.eclipse.equinox.p2.description' value='An Eclipse plugin for Apache Camel Route Debugging and Visualization. &#xA;Please feel free to dive in fellow camel riders! Especially if you have any eclipse hacking experience.'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://camel-route-viewer.googlecode.com/'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Camel Rider'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.googlecode.camelrouteviewer.feature.feature.group' version='1.0.0'/>
+      </provides>
+      <requires size='17'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.zest.core' range='1.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.zest.layouts' range='1.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.ui' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.core' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.resources' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jface.text' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.editors' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.expressions' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.views.properties.tabbed' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.launching' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.debug.ui' range='3.3.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.debug.ui' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.googlecode.camelrouteviewer' range='[0.1.0,0.1.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.googlecode.camelrouteviewer.feature.feature.jar' range='[1.0.0,1.0.0]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license url='http://www.apache.org/licenses/LICENSE-2.0'>
+          Apache License&#xA;Version 2.0, January 2004&#xA;http://www.apache.org/licenses/&#xA;TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION&#xA;1. Definitions.&#xA;&quot;License&quot; shall mean the terms and conditions for use, reproduction,&#xA;and distribution as defined by Sections 1 through 9 of this document.&#xA;&quot;Licensor&quot; shall mean the copyright owner or entity authorized&#xA;by the copyright owner that is granting the License.&#xA;&quot;Legal Entity&quot; shall mean the union of the acting entity and&#xA;all other entities that control, are controlled by, or are under&#xA;common control with that entity. For the purposes of this definition,&#xA;&quot;control&quot; means (i) the power, direct or indirect, to cause the&#xA;direction or management of such entity, whether by contract or&#xA;otherwise, or (ii) ownership of fifty percent (50%) or more of&#xA;the outstanding shares, or (iii) beneficial ownership of such&#xA;entity.&#xA;&quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal Entity exercising&#xA;permissions granted by this License.&#xA;&quot;Source&quot; form shall mean the preferred form for making modifications,&#xA;including but not limited to software source code, documentation&#xA;source, and configuration files.&#xA;&quot;Object&quot; form shall mean any form resulting from mechanical transformation&#xA;or translation of a Source form, including but not limited to&#xA;compiled object code, generated documentation, and conversions&#xA;to other media types.&#xA;&quot;Work&quot; shall mean the work of authorship, whether in Source or&#xA;Object form, made available under the License, as indicated by&#xA;a copyright notice that is included in or attached to the work&#xA;(an example is provided in the Appendix below).&#xA;&quot;Derivative Works&quot; shall mean any work, whether in Source or&#xA;Object form, that is based on (or derived from) the Work and&#xA;for which the editorial revisions, annotations, elaborations,&#xA;or other modifications represent, as a whole, an original work&#xA;of authorship. For the purposes of this License, Derivative Works&#xA;shall not include works that remain separable from, or merely&#xA;link (or bind by name) to the interfaces of, the Work and Derivative&#xA;Works thereof.&#xA;&quot;Contribution&quot; shall mean any work of authorship, including the&#xA;original version of the Work and any modifications or additions&#xA;to that Work or Derivative Works thereof, that is intentionally&#xA;submitted to Licensor for inclusion in the Work by the copyright&#xA;owner or by an individual or Legal Entity authorized to submit&#xA;on behalf of the copyright owner. For the purposes of this definition,&#xA;&quot;submitted&quot; means any form of electronic, verbal, or written&#xA;communication sent to the Licensor or its representatives, including&#xA;but not limited to communication on electronic mailing lists,&#xA;source code control systems, and issue tracking systems that&#xA;are managed by, or on behalf of, the Licensor for the purpose&#xA;of discussing and improving the Work, but excluding communication&#xA;that is conspicuously marked or otherwise designated in writing&#xA;by the copyright owner as &quot;Not a Contribution.&quot;&#xA;&quot;Contributor&quot; shall mean Licensor and any individual or Legal&#xA;Entity on behalf of whom a Contribution has been received by&#xA;Licensor and subsequently incorporated within the Work.&#xA;2. Grant of Copyright License. Subject to the terms and conditions&#xA;of this License, each Contributor hereby grants to You a perpetual,&#xA;worldwide, non-exclusive, no-charge, royalty-free, irrevocable&#xA;copyright license to reproduce, prepare Derivative Works of,&#xA;publicly display, publicly perform, sublicense, and distribute&#xA;the Work and such Derivative Works in Source or Object form.&#xA;3. Grant of Patent License. Subject to the terms and conditions&#xA;of this License, each Contributor hereby grants to You a perpetual,&#xA;worldwide, non-exclusive, no-charge, royalty-free, irrevocable&#xA;(except as stated in this section) patent license to make, have&#xA;made, use, offer to sell, sell, import, and otherwise transfer&#xA;the Work, where such license applies only to those patent claims&#xA;licensable by such Contributor that are necessarily infringed&#xA;by their Contribution(s) alone or by combination of their Contribution(s)&#xA;with the Work to which such Contribution(s) was submitted. If&#xA;You institute patent litigation against any entity (including&#xA;a cross-claim or counterclaim in a lawsuit) alleging that the&#xA;Work or a Contribution incorporated within the Work constitutes&#xA;direct or contributory patent infringement, then any patent licenses&#xA;granted to You under this License for that Work shall terminate&#xA;as of the date such litigation is filed.&#xA;4. Redistribution. You may reproduce and distribute copies of&#xA;the Work or Derivative Works thereof in any medium, with or without&#xA;modifications, and in Source or Object form, provided that You&#xA;meet the following conditions:&#xA;1. You must give any other recipients of the Work or Derivative&#xA;Works a copy of this License; and&#xA;2. You must cause any modified files to carry prominent notices&#xA;stating that You changed the files; and&#xA;3. You must retain, in the Source form of any Derivative Works&#xA;that You distribute, all copyright, patent, trademark, and attribution&#xA;notices from the Source form of the Work, excluding those notices&#xA;that do not pertain to any part of the Derivative Works; and&#xA;4. If the Work includes a &quot;NOTICE&quot; text file as part of its distribution,&#xA;then any Derivative Works that You distribute must include a&#xA;readable copy of the attribution notices contained within such&#xA;NOTICE file, excluding those notices that do not pertain to any&#xA;part of the Derivative Works, in at least one of the following&#xA;places: within a NOTICE text file distributed as part of the&#xA;Derivative Works; within the Source form or documentation, if&#xA;provided along with the Derivative Works; or, within a display&#xA;generated by the Derivative Works, if and wherever such third-party&#xA;notices normally appear. The contents of the NOTICE file are&#xA;for informational purposes only and do not modify the License.&#xA;You may add Your own attribution notices within Derivative Works&#xA;that You distribute, alongside or as an addendum to the NOTICE&#xA;text from the Work, provided that such additional attribution&#xA;notices cannot be construed as modifying the License.&#xA;You may add Your own copyright statement to Your modifications&#xA;and may provide additional or different license terms and conditions&#xA;for use, reproduction, or distribution of Your modifications,&#xA;or for any such Derivative Works as a whole, provided Your use,&#xA;reproduction, and distribution of the Work otherwise complies&#xA;with the conditions stated in this License.&#xA;5. Submission of Contributions. Unless You explicitly state otherwise,&#xA;any Contribution intentionally submitted for inclusion in the&#xA;Work by You to the Licensor shall be under the terms and conditions&#xA;of this License, without any additional terms or conditions.&#xA;Notwithstanding the above, nothing herein shall supersede or&#xA;modify the terms of any separate license agreement you may have&#xA;executed with Licensor regarding such Contributions.&#xA;6. Trademarks. This License does not grant permission to use&#xA;the trade names, trademarks, service marks, or product names&#xA;of the Licensor, except as required for reasonable and customary&#xA;use in describing the origin of the Work and reproducing the&#xA;content of the NOTICE file.&#xA;7. Disclaimer of Warranty. Unless required by applicable law&#xA;or agreed to in writing, Licensor provides the Work (and each&#xA;Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS,&#xA;WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express&#xA;or implied, including, without limitation, any warranties or&#xA;conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS&#xA;FOR A PARTICULAR PURPOSE. You are solely responsible for determining&#xA;the appropriateness of using or redistributing the Work and assume&#xA;any risks associated with Your exercise of permissions under&#xA;this License.&#xA;8. Limitation of Liability. In no event and under no legal theory,&#xA;whether in tort (including negligence), contract, or otherwise,&#xA;unless required by applicable law (such as deliberate and grossly&#xA;negligent acts) or agreed to in writing, shall any Contributor&#xA;be liable to You for damages, including any direct, indirect,&#xA;special, incidental, or consequential damages of any character&#xA;arising as a result of this License or out of the use or inability&#xA;to use the Work (including but not limited to damages for loss&#xA;of goodwill, work stoppage, computer failure or malfunction,&#xA;or any and all other commercial damages or losses), even if such&#xA;Contributor has been advised of the possibility of such damages.&#xA;9. Accepting Warranty or Additional Liability. While redistributing&#xA;the Work or Derivative Works thereof, You may choose to offer,&#xA;and charge a fee for, acceptance of support, warranty, indemnity,&#xA;or other liability obligations and/or rights consistent with&#xA;this License. However, in accepting such obligations, You may&#xA;act only on Your own behalf and on Your sole responsibility,&#xA;not on behalf of any other Contributor, and only if You agree&#xA;to indemnify, defend, and hold each Contributor harmless for&#xA;any liability incurred by, or claims asserted against, such Contributor&#xA;by reason of your accepting any such warranty or additional liability.&#xA;END OF TERMS AND CONDITIONS
+        </license>
+      </licenses>
+      <copyright>
+        (C) 2008 Copyright
+      </copyright>
+    </unit>
+    <unit id='com.googlecode.camelrouteviewer.feature.feature.jar' version='1.0.0'>
+      <update id='com.googlecode.camelrouteviewer.feature.feature.jar' range='[0.0.0,1.0.0)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Camel Route Viewer '/>
+        <property name='org.eclipse.equinox.p2.description' value='An Eclipse plugin for Apache Camel Route Debugging and Visualization. &#xA;Please feel free to dive in fellow camel riders! Especially if you have any eclipse hacking experience.'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://camel-route-viewer.googlecode.com/'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Camel Rider'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.googlecode.camelrouteviewer.feature.feature.jar' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='com.googlecode.camelrouteviewer.feature' version='1.0.0'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='com.googlecode.camelrouteviewer.feature' version='1.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license url='http://www.apache.org/licenses/LICENSE-2.0'>
+          Apache License&#xA;Version 2.0, January 2004&#xA;http://www.apache.org/licenses/&#xA;TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION&#xA;1. Definitions.&#xA;&quot;License&quot; shall mean the terms and conditions for use, reproduction,&#xA;and distribution as defined by Sections 1 through 9 of this document.&#xA;&quot;Licensor&quot; shall mean the copyright owner or entity authorized&#xA;by the copyright owner that is granting the License.&#xA;&quot;Legal Entity&quot; shall mean the union of the acting entity and&#xA;all other entities that control, are controlled by, or are under&#xA;common control with that entity. For the purposes of this definition,&#xA;&quot;control&quot; means (i) the power, direct or indirect, to cause the&#xA;direction or management of such entity, whether by contract or&#xA;otherwise, or (ii) ownership of fifty percent (50%) or more of&#xA;the outstanding shares, or (iii) beneficial ownership of such&#xA;entity.&#xA;&quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal Entity exercising&#xA;permissions granted by this License.&#xA;&quot;Source&quot; form shall mean the preferred form for making modifications,&#xA;including but not limited to software source code, documentation&#xA;source, and configuration files.&#xA;&quot;Object&quot; form shall mean any form resulting from mechanical transformation&#xA;or translation of a Source form, including but not limited to&#xA;compiled object code, generated documentation, and conversions&#xA;to other media types.&#xA;&quot;Work&quot; shall mean the work of authorship, whether in Source or&#xA;Object form, made available under the License, as indicated by&#xA;a copyright notice that is included in or attached to the work&#xA;(an example is provided in the Appendix below).&#xA;&quot;Derivative Works&quot; shall mean any work, whether in Source or&#xA;Object form, that is based on (or derived from) the Work and&#xA;for which the editorial revisions, annotations, elaborations,&#xA;or other modifications represent, as a whole, an original work&#xA;of authorship. For the purposes of this License, Derivative Works&#xA;shall not include works that remain separable from, or merely&#xA;link (or bind by name) to the interfaces of, the Work and Derivative&#xA;Works thereof.&#xA;&quot;Contribution&quot; shall mean any work of authorship, including the&#xA;original version of the Work and any modifications or additions&#xA;to that Work or Derivative Works thereof, that is intentionally&#xA;submitted to Licensor for inclusion in the Work by the copyright&#xA;owner or by an individual or Legal Entity authorized to submit&#xA;on behalf of the copyright owner. For the purposes of this definition,&#xA;&quot;submitted&quot; means any form of electronic, verbal, or written&#xA;communication sent to the Licensor or its representatives, including&#xA;but not limited to communication on electronic mailing lists,&#xA;source code control systems, and issue tracking systems that&#xA;are managed by, or on behalf of, the Licensor for the purpose&#xA;of discussing and improving the Work, but excluding communication&#xA;that is conspicuously marked or otherwise designated in writing&#xA;by the copyright owner as &quot;Not a Contribution.&quot;&#xA;&quot;Contributor&quot; shall mean Licensor and any individual or Legal&#xA;Entity on behalf of whom a Contribution has been received by&#xA;Licensor and subsequently incorporated within the Work.&#xA;2. Grant of Copyright License. Subject to the terms and conditions&#xA;of this License, each Contributor hereby grants to You a perpetual,&#xA;worldwide, non-exclusive, no-charge, royalty-free, irrevocable&#xA;copyright license to reproduce, prepare Derivative Works of,&#xA;publicly display, publicly perform, sublicense, and distribute&#xA;the Work and such Derivative Works in Source or Object form.&#xA;3. Grant of Patent License. Subject to the terms and conditions&#xA;of this License, each Contributor hereby grants to You a perpetual,&#xA;worldwide, non-exclusive, no-charge, royalty-free, irrevocable&#xA;(except as stated in this section) patent license to make, have&#xA;made, use, offer to sell, sell, import, and otherwise transfer&#xA;the Work, where such license applies only to those patent claims&#xA;licensable by such Contributor that are necessarily infringed&#xA;by their Contribution(s) alone or by combination of their Contribution(s)&#xA;with the Work to which such Contribution(s) was submitted. If&#xA;You institute patent litigation against any entity (including&#xA;a cross-claim or counterclaim in a lawsuit) alleging that the&#xA;Work or a Contribution incorporated within the Work constitutes&#xA;direct or contributory patent infringement, then any patent licenses&#xA;granted to You under this License for that Work shall terminate&#xA;as of the date such litigation is filed.&#xA;4. Redistribution. You may reproduce and distribute copies of&#xA;the Work or Derivative Works thereof in any medium, with or without&#xA;modifications, and in Source or Object form, provided that You&#xA;meet the following conditions:&#xA;1. You must give any other recipients of the Work or Derivative&#xA;Works a copy of this License; and&#xA;2. You must cause any modified files to carry prominent notices&#xA;stating that You changed the files; and&#xA;3. You must retain, in the Source form of any Derivative Works&#xA;that You distribute, all copyright, patent, trademark, and attribution&#xA;notices from the Source form of the Work, excluding those notices&#xA;that do not pertain to any part of the Derivative Works; and&#xA;4. If the Work includes a &quot;NOTICE&quot; text file as part of its distribution,&#xA;then any Derivative Works that You distribute must include a&#xA;readable copy of the attribution notices contained within such&#xA;NOTICE file, excluding those notices that do not pertain to any&#xA;part of the Derivative Works, in at least one of the following&#xA;places: within a NOTICE text file distributed as part of the&#xA;Derivative Works; within the Source form or documentation, if&#xA;provided along with the Derivative Works; or, within a display&#xA;generated by the Derivative Works, if and wherever such third-party&#xA;notices normally appear. The contents of the NOTICE file are&#xA;for informational purposes only and do not modify the License.&#xA;You may add Your own attribution notices within Derivative Works&#xA;that You distribute, alongside or as an addendum to the NOTICE&#xA;text from the Work, provided that such additional attribution&#xA;notices cannot be construed as modifying the License.&#xA;You may add Your own copyright statement to Your modifications&#xA;and may provide additional or different license terms and conditions&#xA;for use, reproduction, or distribution of Your modifications,&#xA;or for any such Derivative Works as a whole, provided Your use,&#xA;reproduction, and distribution of the Work otherwise complies&#xA;with the conditions stated in this License.&#xA;5. Submission of Contributions. Unless You explicitly state otherwise,&#xA;any Contribution intentionally submitted for inclusion in the&#xA;Work by You to the Licensor shall be under the terms and conditions&#xA;of this License, without any additional terms or conditions.&#xA;Notwithstanding the above, nothing herein shall supersede or&#xA;modify the terms of any separate license agreement you may have&#xA;executed with Licensor regarding such Contributions.&#xA;6. Trademarks. This License does not grant permission to use&#xA;the trade names, trademarks, service marks, or product names&#xA;of the Licensor, except as required for reasonable and customary&#xA;use in describing the origin of the Work and reproducing the&#xA;content of the NOTICE file.&#xA;7. Disclaimer of Warranty. Unless required by applicable law&#xA;or agreed to in writing, Licensor provides the Work (and each&#xA;Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS,&#xA;WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express&#xA;or implied, including, without limitation, any warranties or&#xA;conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS&#xA;FOR A PARTICULAR PURPOSE. You are solely responsible for determining&#xA;the appropriateness of using or redistributing the Work and assume&#xA;any risks associated with Your exercise of permissions under&#xA;this License.&#xA;8. Limitation of Liability. In no event and under no legal theory,&#xA;whether in tort (including negligence), contract, or otherwise,&#xA;unless required by applicable law (such as deliberate and grossly&#xA;negligent acts) or agreed to in writing, shall any Contributor&#xA;be liable to You for damages, including any direct, indirect,&#xA;special, incidental, or consequential damages of any character&#xA;arising as a result of this License or out of the use or inability&#xA;to use the Work (including but not limited to damages for loss&#xA;of goodwill, work stoppage, computer failure or malfunction,&#xA;or any and all other commercial damages or losses), even if such&#xA;Contributor has been advised of the possibility of such damages.&#xA;9. Accepting Warranty or Additional Liability. While redistributing&#xA;the Work or Derivative Works thereof, You may choose to offer,&#xA;and charge a fee for, acceptance of support, warranty, indemnity,&#xA;or other liability obligations and/or rights consistent with&#xA;this License. However, in accepting such obligations, You may&#xA;act only on Your own behalf and on Your sole responsibility,&#xA;not on behalf of any other Contributor, and only if You agree&#xA;to indemnify, defend, and hold each Contributor harmless for&#xA;any liability incurred by, or claims asserted against, such Contributor&#xA;by reason of your accepting any such warranty or additional liability.&#xA;END OF TERMS AND CONDITIONS
+        </license>
+      </licenses>
+      <copyright>
+        (C) 2008 Copyright
+      </copyright>
+    </unit>
     <unit id='tooling.source.default' version='1.0.0' singleton='false'>
       <hostRequirements size='1'>
         <required namespace='org.eclipse.equinox.p2.eclipse.type' name='source' range='0.0.0' optional='true' multiple='true' greedy='false'/>
@@ -165,51 +210,6 @@
           </instruction>
         </instructions>
       </touchpointData>
-    </unit>
-    <unit id='com.googlecode.camelrouteviewer.feature.feature.group' version='0.1.0' singleton='false'>
-      <update id='com.googlecode.camelrouteviewer.feature.feature.group' range='[0.0.0,0.1.0)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='Camel Route Viewer'/>
-        <property name='org.eclipse.equinox.p2.description' value='Camel Route Viewer'/>
-        <property name='org.eclipse.equinox.p2.description.url' value='http://code.google.com/p/camel-route-viewer/'/>
-        <property name='org.eclipse.equinox.p2.provider' value='http://code.google.com/p/camel-route-viewer/'/>
-        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
-      </properties>
-      <provides size='1'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.googlecode.camelrouteviewer.feature.feature.group' version='0.1.0'/>
-      </provides>
-      <requires size='17'>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.zest.core' range='1.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.zest.layouts' range='1.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.ui' range='3.4.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.core' range='3.4.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.resources' range='3.4.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jface.text' range='3.4.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.editors' range='3.4.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.expressions' range='3.4.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.views.properties.tabbed' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.debug.core' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.launching' range='3.4.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.debug.ui' range='3.3.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.debug.ui' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.googlecode.camelrouteviewer' range='[0.1.0,0.1.0]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.googlecode.camelrouteviewer.feature.feature.jar' range='[0.1.0,0.1.0]'>
-          <filter>
-            (org.eclipse.update.install.features=true)
-          </filter>
-        </required>
-      </requires>
-      <touchpoint id='null' version='0.0.0'/>
-      <licenses size='1'>
-        <license url='http://www.apache.org/licenses/LICENSE-2.0'>
-          http://www.apache.org/licenses/LICENSE-2.0
-        </license>
-      </licenses>
-      <copyright url='http://www.example.com/copyright'>
-        (c) 2008 Camel Rider
-      </copyright>
     </unit>
     <unit id='a.jre' version='1.6.0' singleton='false'>
       <provides size='117'>
