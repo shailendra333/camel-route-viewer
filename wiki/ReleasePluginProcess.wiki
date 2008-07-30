@@ -29,8 +29,7 @@
 
 = Update Documents =
 
-  * Update *changelog* in http://camel-route-viewer.googlecode.com/svn/updates/latest_release/changelog.txt
-  * Update other Site and Wiki documents.
+  * Update Site and Wiki documents,Release Notes/ChangeLog/ etc.
 
 
 = Reference pictures =
