@@ -1,18 +1,34 @@
-#summary One-sentence summary of this page.
+#When 
 
-= Introduction =
+= Build the update site in local disk =
 
-Add your content here.
+  * [BuildingTheCode http://code.google.com/p/camel-route-viewer/wiki/BuildingTheCode]
+  * Get projects for release:
+    # Feature Project:https://camel-route-viewer.googlecode.com/svn/updates/project4release/com.googlecode.camelrouteviewer.feature
+    # Updates Project:https://camel-route-viewer.googlecode.com/svn/updates/project4release/project4release/com.googlecode.camelrouteviewer.updates
+[http://camel-route-viewer.googlecode.com/svn/updates/svn/project4release/projects4release.gif]
 
-
-= Details =
-
-* Copy the *latest_release* to *archived_releases* using the following command: 
-svn copy SRC-URL DEST-URL -m "Reason for this commit"
-
-For example:
-
-svn copy https://camel-route-viewer.googlecode.com/svn/updates/latest_release
-         https://camel-route-viewer.googlecode.com/svn/updates/archived_releases/1.0.0 -m "backup 1.0.0 release"
+  * Update version number:Edit version number in *Plugin Project>>plugin.xml* and *Feature Project>>feature.xml*
+    for example,from *1.1.0_v20080830*　to *1.2.0_v20080930*
 
 
+  * Update feature in *Updates Project site.xml*,always remove the older feature,then add the newer feature just increated version number. Because I found that *Synchronize* button didn't work when version number changed.
+
+[http://camel-route-viewer.googlecode.com/svn/updates/svn/project4release/managing_site.gif]
+
+  * Press *Build* button in *Updates Project>>site.xml>>Site Map*,then in *Updates Project* will generate two folder:features and plugins.
+
+  * Yeah,The *Updates Project* folder is just the *${updatefolder}*.
+
+= Commit the update site to Release =
+
+  * Copy the *latest_release* to *archived_releases* using the following command,for example:
+
+    {{{svn copy https://camel-route-viewer.googlecode.com/svn/updates/latest_release     https://camel-route-viewer.googlecode.com/svn/updates/archived_releases/1.0.0 -m "archive 1.0.0 release"}}}
+
+  * subversion commit *${updatefolder}*  to https://camel-route-viewer.googlecode.com/svn/updates/latest_release
+
+= Update Documents =
+
+  * Update *changelog* in https://camel-route-viewer.googlecode.com/svn/updates/latest_release/changelog.txt
+  * Update other Site and Wiki documents.
