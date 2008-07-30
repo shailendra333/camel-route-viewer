@@ -7,7 +7,12 @@ Add your content here.
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+* Copy the *latest_release* to *archived_releases* using the following command: 
+svn copy SRC-URL DEST-URL -m "Reason for this commit"
+
+For example:
+
+svn copy https://camel-route-viewer.googlecode.com/svn/updates/latest_release
+         https://camel-route-viewer.googlecode.com/svn/updates/archived_releases/1.0.0 -m "backup 1.0.0 release"
+
+
