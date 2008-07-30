@@ -1,0 +1,19 @@
+Camel Route Viewer Changelog
+===================
+
+Changes in version x.x.x (25.5.2008)
+
+** Bug
+
+** Improvement
+
+** New Feature
+
+** Patch
+
+** Task
+
+version 1.0.0
+-------------
+Initial alpha version
+
