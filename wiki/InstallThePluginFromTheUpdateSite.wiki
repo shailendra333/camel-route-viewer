@@ -23,5 +23,5 @@ Install latest release plugin from the update site as follow.
 Next [GettingStarted]
 
 = Reference Pictures =
-http://camel-route-viewer.googlecode.com/svn/wiki/install_the_plugin_from_the_update_site/install1.gif
-http://camel-route-viewer.googlecode.com/svn/wiki/install_the_plugin_from_the_update_site/install2.gif
+http://camel-route-viewer.googlecode.com/svn/wiki/pictures/install_the_plugin_from_the_update_site/install1.gif
+http://camel-route-viewer.googlecode.com/svn/wiki/pictures/install_the_plugin_from_the_update_site/install2.gif
