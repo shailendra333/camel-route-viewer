@@ -36,5 +36,5 @@ Grateful if you know a more automatic releaseing style.
 
 
 = Reference pictures =
-http://camel-route-viewer.googlecode.com/svn/wiki/release_plugin_process/projects4release.gif
-http://camel-route-viewer.googlecode.com/svn/wiki/release_plugin_process/managing_site.gif
+http://camel-route-viewer.googlecode.com/svn/wiki/pictures/release_plugin_process/projects4release.gif
+http://camel-route-viewer.googlecode.com/svn/wiki/pictures/release_plugin_process/managing_site.gif
