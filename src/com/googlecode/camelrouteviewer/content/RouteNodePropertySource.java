@@ -1,5 +1,6 @@
 package com.googlecode.camelrouteviewer.content;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.camel.Exchange;
@@ -14,7 +15,7 @@ public class RouteNodePropertySource implements IPropertySource {
 	private static final String NAME = "camel.node.name";
 	private static final String EXCHANGES = "camel.node.exchanges";
 
-	private IPropertyDescriptor[] propertyDescriptors = {
+	private IPropertyDescriptor[] propertyDescriptors = { 
 			new TextPropertyDescriptor(NAME, "Pattern Name"),
 
 			// TODO I wonder if we can show this as an actual link?
@@ -48,14 +49,29 @@ public class RouteNodePropertySource implements IPropertySource {
 			List<Exchange> exchanges = node.getExchanges();
 			// TODO this should work with collections!
 			if (!exchanges.isEmpty()) {
+				// TODO this does not work!
+				/*
+				 * PropertySheetEntry entry = new PropertySheetEntry();
+				 * entry.setValues(exchanges.toArray());
+				 * entry.setPropertySourceProvider(new IPropertySourceProvider()
+				 * { public IPropertySource getPropertySource(Object object) {
+				 * return new ExchangePropertySource((Exchange) object); }});
+				 * return entry;
+				 */
+				// TODO how to render a list?
 				return new ExchangePropertySource(exchanges.get(0));
 			}
-		}
+/*			List<ExchangePropertySource> sources = new ArrayList<ExchangePropertySource>(exchanges.size());
+			for (Exchange exchange : exchanges) {
+				sources.add(new ExchangePropertySource(exchange));
+			}
+			return sources;
+*/		}
 		return null;
 	}
 
 	public boolean isPropertySet(Object name) {
-		return false;
+		return true;
 	}
 
 	public void resetPropertyValue(Object name) {
