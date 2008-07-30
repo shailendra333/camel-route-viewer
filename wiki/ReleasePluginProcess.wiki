@@ -1,4 +1,4 @@
-  # Put *Latest Release* and *Archived Release* in SVN ,use eclipse site.(Alwyas back up Latest Release to Archived Release)
+  # Put *Latest Release* and *Archived Release* in SVN ,use eclipse site.(Always back up Latest Release to Archived Release)
   # Put *Integration Builds* in _Downloads_,use zipped file.(Don't back up,to treasure SVN disk space)
 　
 Grateful if you know a more automatic releaseing style.
