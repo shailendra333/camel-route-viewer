@@ -18,7 +18,7 @@
 
   * Press *Build* button in *Updates Project>>site.xml>>Site Map*,then in *Updates Project* will generate two folder:features and plugins.
 
-  * Yeah,The *Updates Project* folder is just the *${site folder}*.
+  * Yeah,The *Updates Project* folder is just the *${site folder}*.Be care to remove older generated features jar if exists.
 
 = Commit the update site to Release =
 
