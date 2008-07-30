@@ -9,7 +9,7 @@
 http://camel-route-viewer.googlecode.com/svn/updates/svn/project4release/projects4release.gif
 
   * Update version number:Edit version number in *Plugin Project>>plugin.xml* and *Feature Project>>feature.xml*
-    for example,from *1.1.0_v20080830*　to *1.2.0_v20080930*
+    for example,from  *1.1.0_v20080830* to *1.2.0_v20080930*
 
 
   * Update feature in *Updates Project site.xml*,always remove the older feature,then add the newer feature just increated version number. Because I found that *Synchronize* button didn't work when version number changed.
