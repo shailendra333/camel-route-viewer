@@ -20,8 +20,8 @@ Install latest release plugin from the update site as follow.
   * wait a moment for installing...
   * Restart Eclipse.
 
-Next [GetStartToRideCamel]
+Next [GettingStarted]
 
 = Reference Pictures =
-http://camel-route-viewer.googlecode.com/svn/updates/project4release/install1.gif
-http://camel-route-viewer.googlecode.com/svn/updates/project4release/install2.gif
+http://camel-route-viewer.googlecode.com/svn/wiki/install_the_plugin_from_the_update_site/install1.gif
+http://camel-route-viewer.googlecode.com/svn/wiki/install_the_plugin_from_the_update_site/install2.gif
