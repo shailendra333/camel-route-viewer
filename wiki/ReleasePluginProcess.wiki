@@ -1,5 +1,5 @@
-# Put Latest Release and Archived Release in SVN ,use eclipse site.(Alwyas back up Latest Release to Archived Release)
-# Put Integration Builds in Downloads,use zipped file.(Don't back up,to treasure SVN disk space)
+  # Put Latest Release and Archived Release in SVN ,use eclipse site.(Alwyas back up Latest Release to Archived Release)
+  # Put Integration Builds in Downloads,use zipped file.(Don't back up,to treasure SVN disk space)
 
 = Build the ${site folder} in local disk =
 
