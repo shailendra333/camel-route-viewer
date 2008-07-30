@@ -88,8 +88,9 @@
           enablesFor="1"
           icon="icons/view.gif"
           id="com.googlecode.camelrouteviewer.action.LaunchCamelAction"
-          label="Run Camel Route">
+          label="View Camel Route">
                       </action>
+ 
 <!-- 
   		<action
           class="com.googlecode.camelrouteviewer.action.SpringVisualizeAction"
@@ -100,6 +101,7 @@
                       </action>
 -->
   		</objectContribution>
+  	
 	</extension>
  <extension
        point="org.eclipse.debug.core.launchConfigurationTypes">
@@ -147,7 +149,7 @@
             icon="icons/view.gif"
             modes="run,debug"
             class="com.googlecode.camelrouteviewer.launcher.CamelLaunchShortcut"
-            id="com.googlecode.camelrouteviewer.launcher.type.lanchShortcut">
+            id="com.googlecode.camelrouteviewer.launcher.type.launchShortcut">
 	        
 	        <configurationType 
                id="com.googlecode.camelrouteviewer.launchConfigurationType">
