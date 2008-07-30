@@ -1,5 +1,7 @@
   # Put *Latest Release* and *Archived Release* in SVN ,use eclipse site.(Alwyas back up Latest Release to Archived Release)
   # Put *Integration Builds* in _Downloads_,use zipped file.(Don't back up,to treasure SVN disk space)
+　
+Grateful if you know a more automatic releaseing style.
 
 = Build the ${site folder} in local disk =
 
@@ -30,7 +32,7 @@
 
 = Update Documents =
 
-  * Update Site and Wiki documents,Release Notes/ChangeLog/ etc.
+  * Update Site and Wiki documents,Release Notes、ChangeLog、 etc.
 
 
 = Reference pictures =
