@@ -109,11 +109,15 @@ public class CamelLaunchConfigurationDelegate extends
 
 			public DebugEvent[] filterDebugEvents(DebugEvent[] events) {
 				for (DebugEvent event : events) {
-					System.out.println(">>>> debug event: " + event);
+					System.out.println(">>>> debug event: " + event + " data: " + event.getData());
 					Object source = event.getSource();
 					if (source instanceof IThread) {
 						IThread thread = (IThread) source;
 						displayStackFrames(thread);
+					}
+					else if (source instanceof IWatchExpression) {
+						IWatchExpression watch = (IWatchExpression) source;
+						System.out.println("Watch Data: " + event.getData());
 					}
 				}
 				return events;
@@ -125,8 +129,8 @@ public class CamelLaunchConfigurationDelegate extends
 			String expressionText = "new org.apache.camel.impl.DefaultCamelContext()";
 			IWatchExpression expression = expressionManager.newWatchExpression(expressionText);
 			expression.setEnabled(true);
-//			IDebugElement expressionContext = null;
-//			expression.setExpressionContext(expressionContext );
+			IDebugElement expressionContext = debugTarget;
+			expression.setExpressionContext(expressionContext );
 			expressionManager.addExpression(expression);
 			expression.evaluate();
 			System.out.println("Attempted to evaluate expression: " + expression);
