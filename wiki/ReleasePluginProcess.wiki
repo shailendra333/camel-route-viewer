@@ -6,15 +6,15 @@
   * Get projects for release:
     # Feature Project:https://camel-route-viewer.googlecode.com/svn/updates/project4release/com.googlecode.camelrouteviewer.feature
     # Updates Project:https://camel-route-viewer.googlecode.com/svn/updates/project4release/project4release/com.googlecode.camelrouteviewer.updates
-http://camel-route-viewer.googlecode.com/svn/updates/svn/project4release/projects4release.gif
+http://camel-route-viewer.googlecode.com/svn/updates/project4release/projects4release.gif
 
-  * Update version number:Edit version number in *Plugin Project>>plugin.xml* and *Feature Project>>feature.xml*
+  * Update version number:Edit version number in *"Plugin Project">>plugin.xml* and *"Feature Project">>feature.xml*
     for example,from  *1.1.0_v20080830* to *1.2.0_v20080930*
 
 
-  * Update feature in *Updates Project site.xml*,always remove the older feature,then add the newer feature just increated version number. Because I found that *Synchronize* button didn't work when version number changed.
+  * Update feature the site.xml in "Updates Project",always remove the older feature,then add the newer feature just increated version number. Because I found that *Synchronize* button didn't work when version number changed.
 
-http://camel-route-viewer.googlecode.com/svn/updates/svn/project4release/managing_site.gif
+http://camel-route-viewer.googlecode.com/svn/updates/project4release/managing_site.gif
 
   * Press *Build* button in *Updates Project>>site.xml>>Site Map*,then in *Updates Project* will generate two folder:features and plugins.
 
