@@ -1,6 +1,6 @@
 #When 
 
-= Build the update site in local disk =
+= Build the ${site folder} in local disk =
 
   * [BuildingTheCode http://code.google.com/p/camel-route-viewer/wiki/BuildingTheCode]
   * Get projects for release:
