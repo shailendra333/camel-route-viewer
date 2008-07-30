@@ -11,7 +11,7 @@
     for example,from  *1.1.0_v20080830* to *1.2.0_v20080930*
 
 
-  * Update feature in the site.xml of "Updates Project",always remove the older feature,then add the newer feature just increated version number. Because I found that *Synchronize* button didn't work when version number changed.
+  * Update feature in the site.xml of "Updates Project",always remove the older feature,then add the newer feature just had increated version number. Because I found that *Synchronize* button didn't work when version number changed.
 
 
 
