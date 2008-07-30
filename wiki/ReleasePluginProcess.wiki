@@ -18,7 +18,7 @@ Grateful if you know a more automatic releaseing style.
 
 
 
-  * Press *Build* button in *Updates Project>>site.xml>>Site Map*,then in *Updates Project* will generate two folder:features and plugins.
+  * Press *Build* button in *Updates Project>>site.xml>>Site Map*,then in *Updates Project* will generate two folders:features and plugins.
 
   * Yeah,The *Updates Project* folder is just the *${site folder}*.Be care to remove older generated features jar if exists.
 
