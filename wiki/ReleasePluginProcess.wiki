@@ -2,10 +2,10 @@
 
 = Build the ${site folder} in local disk =
 
-  * [BuildingTheCode http://code.google.com/p/camel-route-viewer/wiki/BuildingTheCode]
+  * [BuildingTheCode]
   * Get projects for release:
     # Feature Project:https://camel-route-viewer.googlecode.com/svn/updates/project4release/com.googlecode.camelrouteviewer.feature
-    # Updates Project:https://camel-route-viewer.googlecode.com/svn/updates/project4release/project4release/com.googlecode.camelrouteviewer.updates
+    # Updates Project:https://camel-route-viewer.googlecode.com/svn/updates/project4release/com.googlecode.camelrouteviewer.updates
 
   * Update version number:Edit version number in *"Plugin Project">>plugin.xml* and *"Feature Project">>feature.xml*
     for example,from  *1.1.0_v20080830* to *1.2.0_v20080930*
