@@ -162,7 +162,7 @@
 			<contextualLaunch> 
 				<enablement>
 	                <with variable="selection">
-						<count value="1"/>
+						<count value="+"/>
 						<iterate>
 							<or>                   
 								<test property="org.eclipse.debug.ui.matchesContentType" value="com.googlecode.camelrouteviewer.contentDescriber.SpringContentDescriber"/>
