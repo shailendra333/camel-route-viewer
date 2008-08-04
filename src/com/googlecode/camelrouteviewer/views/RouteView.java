@@ -13,6 +13,7 @@ import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.ISourceReference;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.internal.core.util.Util;
 import org.eclipse.jdt.internal.ui.javaeditor.JavaEditor;
 import org.eclipse.jdt.internal.ui.util.SelectionUtil;
 import org.eclipse.jface.action.Action;
@@ -54,7 +55,7 @@ import com.googlecode.camelrouteviewer.utils.ImageShop;
  * >Eclipse JDT Javadoc view</a>
  */
 public class RouteView extends ViewPart implements ISelectionListener {
-
+	
 	public static final String VIEW_ID = "com.googlecode.camelrouteviewer.views.RouteView";
 
 	/**
@@ -441,7 +442,7 @@ public class RouteView extends ViewPart implements ISelectionListener {
 			}
 		} catch (JavaModelException e) {
 			// TODO WHY exception?
-			e.printStackTrace();
+			Util.log(e, "Find the selected java element failed.");
 			return null;
 		}
 
@@ -508,13 +509,35 @@ public class RouteView extends ViewPart implements ISelectionListener {
 			source = null;
 		}
 
+		source = removeAnnotations(source);
+		
 		if (containKnowIssues(source)) {
 			return null;
 		}
 		RouteSource routeSource = new RouteSource(source, RouteSourceType.DSL);
 		return routeSource;
 	}
+	private String removeAnnotations(String source) {
 
+		if (source.indexOf("@overwrite") != -1) {
+			String a = source.substring(0, source.indexOf("@overwrite"));
+
+			String b = source.substring(source.indexOf("@overwrite")
+					+ "@overwrite".length(), source.length());
+
+			source = a + b;
+		}
+		if (source.indexOf("@Override") != -1) {
+			String a = source.substring(0, source.indexOf("@Override"));
+
+			String b = source.substring(source.indexOf("@Override")
+					+ "@Override".length(), source.length());
+
+			source = a + b;
+		}
+		return source;
+	}
+	
 	private boolean containKnowIssues(String source) {
 
 		if (source.indexOf("@overwrite") != -1) {
