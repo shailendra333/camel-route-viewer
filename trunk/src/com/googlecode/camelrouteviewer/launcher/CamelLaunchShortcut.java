@@ -98,7 +98,12 @@ public class CamelLaunchShortcut implements ILaunchShortcut, IJavaLaunchConfigur
 				} else {
 					buffer.append(";");
 				}
-				buffer.append(file.getName());
+				// TODO we should be able to use the name on the classpath!!
+				/*
+				 * String name = file.getName(); return "classpath:" + name;
+				 */
+				String applicationContextUri = "\"file:" + file.getLocation().toPortableString()+"\"";
+				buffer.append(applicationContextUri);
 			}
 			String arguments = buffer.toString();
 			workingCopy.setAttribute(ATTR_PROGRAM_ARGUMENTS, arguments);
