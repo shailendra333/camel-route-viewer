@@ -27,7 +27,7 @@ import org.eclipse.jdt.launching.JavaRuntime;
 
 public class CamelTabGroup extends AbstractLaunchConfigurationTabGroup implements IJavaLaunchConfigurationConstants {
 
-	JavaMainTab javaMainTab = new JavaMainTab();
+	CamelLaunchMainTab javaMainTab = new CamelLaunchMainTab();
 	JavaArgumentsTab javaArgumentsTab = new JavaArgumentsTab();
 	JavaJRETab javaJRETab = new JavaJRETab();
 	JavaClasspathTab javaClasspathTab = new JavaClasspathTab();
