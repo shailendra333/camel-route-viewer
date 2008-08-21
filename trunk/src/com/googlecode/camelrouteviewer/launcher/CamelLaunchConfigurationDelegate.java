@@ -64,6 +64,12 @@ public class CamelLaunchConfigurationDelegate extends
 
 		// TODO we need to deal properly with arguments and vmargs containing a list of arguments
 		List<String> argList = new ArrayList<String>();
+		if(configuration.getAttribute(
+				CamelLaunchMainTab.ATTR_TRACE, false)){
+			argList.add("-trace");
+		}
+		argList.add("-a");
+		argList.add(configuration.getAttribute(CamelLaunchMainTab.ATTR_SPRING_XML,(String)null));
 		addCommandLineArgs(argList, arguments);
 		if (!argList.isEmpty()) {
 			runConfig.setProgramArguments(toStringArray(argList));
