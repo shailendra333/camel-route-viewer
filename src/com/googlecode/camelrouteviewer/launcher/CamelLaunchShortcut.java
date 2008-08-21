@@ -90,7 +90,7 @@ public class CamelLaunchShortcut implements ILaunchShortcut, IJavaLaunchConfigur
 
 			// specify main type and program arguments
 			workingCopy.setAttribute(ATTR_MAIN_TYPE_NAME, "org.apache.camel.spring.Main");
-			StringBuffer buffer = new StringBuffer("-trace -a ");
+			StringBuffer buffer = new StringBuffer();
 			boolean first = true;
 			for (IFile file : files) {
 				if (first) {
@@ -106,7 +106,8 @@ public class CamelLaunchShortcut implements ILaunchShortcut, IJavaLaunchConfigur
 				buffer.append(applicationContextUri);
 			}
 			String arguments = buffer.toString();
-			workingCopy.setAttribute(ATTR_PROGRAM_ARGUMENTS, arguments);
+			workingCopy.setAttribute(CamelLaunchMainTab.ATTR_SPRING_XML, arguments);
+			workingCopy.setAttribute(CamelLaunchMainTab.ATTR_TRACE, true);
 
 			System.out.println("About to run Camel main with arguments: " + arguments);
 

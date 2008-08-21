@@ -49,8 +49,7 @@ public class CamelTabGroup extends AbstractLaunchConfigurationTabGroup implement
 		setTabs(new ILaunchConfigurationTab[] { javaMainTab,
 				javaArgumentsTab,
 				javaJRETab,
-				javaClasspathTab, 
-				new CamelLaunchMainTab(),
+				javaClasspathTab,
 				new CommonTab() });
 	}
 
